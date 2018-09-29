@@ -16,9 +16,15 @@
 				<a href="<?php echo get_home_url(); ?>" title="Home">gate<span>genius</span></a>
 			</h1>
 			<div class="social-icons">
-				<a href="#" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-				<a href="#" title="Youtube" target="_blank"><i class="fab fa-youtube"></i></a>
+				<?php if (get_field('facebook_link','options')) { ?>
+					<a href="#" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+				<?php } ?>
+				<?php if (get_field('instagram_link','options')) { ?>
+					<a href="#" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+				<?php } ?>
+				<?php if (get_field('youtube_link','options')) { ?>
+					<a href="#" title="Youtube" target="_blank"><i class="fab fa-youtube"></i></a>
+				<?php } ?>
 			</div>
 		</div>
 	</header>
