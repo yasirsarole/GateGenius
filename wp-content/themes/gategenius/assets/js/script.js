@@ -1,5 +1,19 @@
 (function($) {
   $(document).ready(function() {
-    console.log('hit');
+    // Home page main slider
+    $('.gallery').slick({
+      adaptiveHeight: true,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      arrows: false
+    });
+
+    // Home page result slider
+    $('.results').slick({
+      adaptiveHeight: true,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      arrows: false
+    });
   });
 })(jQuery);

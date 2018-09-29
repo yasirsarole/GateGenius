@@ -10,8 +10,8 @@ get_header();
     <?php wp_nav_menu(array( 'theme_location' => 'extra-menu' )); ?>
     <div class="gallery">
       <?php
-        if( have_rows('slider_images') ):
-          while ( have_rows('slider_images') ) : the_row();
+        if( have_rows('slider_image') ):
+          while ( have_rows('slider_image') ) : the_row();
       ?>    
       <?php $image = get_sub_field('images'); ?>
         <figure class="slider-image">
@@ -21,6 +21,25 @@ get_header();
           endwhile;
         endif;
       ?>      
+    </div>
+    <div class="bottom-sections">
+      <div class="student-login">
+        <a href="#">gate genius student login</a>
+      </div>
+      <div class="results">
+        <?php
+          if( have_rows('results__images') ):
+            while ( have_rows('results__images') ) : the_row();
+        ?>    
+        <?php $image = get_sub_field('images'); ?>
+          <figure class="result-slider">
+            <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+          </figure>
+        <?php  
+            endwhile;
+          endif;
+        ?>         
+      </div>
     </div>
   </div>
 </main>
