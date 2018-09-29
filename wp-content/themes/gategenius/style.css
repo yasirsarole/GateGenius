@@ -53,7 +53,11 @@ table {
 
 /*****  Global code starts here *****/
 body {
-	background: linear-gradient(to right, #adacf9, #f9abf2);
+	background: url('assets/images/two.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;	
 	font-family: 'Roboto Slab', serif;
 }
 .wrapper {
@@ -73,7 +77,8 @@ body {
 
 /***** Header css starts here *****/
 header {
-	background: linear-gradient(to right, #032459, #6c7c84);
+	border-bottom: 2px solid #fff;
+	background: linear-gradient(to right, #913932, #c26724);
 }
 h1 {
 	padding: 5px 0;
@@ -86,7 +91,7 @@ h1 a {
 	color: #fff;
 	text-transform: uppercase;
 	font-weight: 700;
-	font-size: 35px;
+	font-size: 25px;
 	line-height: 1.5;	
 }
 h1 span {
@@ -100,7 +105,7 @@ h1 span {
 .social-icons a {
 	text-decoration: none;
 	color: #fff;
-	font-size: 18px;
+	font-size: 15px;
 	display: inline-block;
 	padding: 10px;
 	transition: 0.5s;	
@@ -113,7 +118,8 @@ h1 span {
 /***** Footer css starts here *****/
 .main-footer {
 	padding: 10px 0;
-	background: linear-gradient(to right, #032459, #6c7c84);
+	border-top: 1px solid #fff;
+	background: linear-gradient(to right, #913932, #c26724);
 }
 .main-footer p {
 	display: inline-block;
@@ -132,3 +138,63 @@ h1 span {
 	text-transform: capitalize;
 }
 /***** Footer css ends here *****/
+
+/***** Home page css starts here *****/
+.menu-horizontal-menu-container {
+	margin-top: 30px;
+}
+.menu-horizontal-menu-container ul li,
+.menu-vertical-menu-container ul li {
+	border: 1px solid transparent;
+	border-radius: 5px;
+	display: inline-block;
+}
+.menu-horizontal-menu-container ul li a,
+.menu-vertical-menu-container ul li a {
+	border: 1px solid transparent;
+	border-radius: 5px;
+	text-decoration: none;
+	font-size: 16px;
+	line-height: 1.5;
+	padding: 10px;
+	display: block;
+	background: #3a2715;
+	color: #ea9b4f;
+	/* transition: 0.3s linear; */
+}
+.menu-horizontal-menu-container ul li:hover,
+.menu-vertical-menu-container ul li:hover {
+	transform: scale(0.95);
+}
+.menu-vertical-menu-container {
+	width: 15%;
+	margin-top: 10px;
+	display: inline-block;
+}
+.menu-vertical-menu-container ul li {
+	margin-top: 5px;
+}
+#menu-horizontal-menu .menu-item,
+#menu-vertical-menu .menu-item {
+	position: relative;
+}
+
+#menu-vertical-menu .menu-item .sub-menu,
+#menu-horizontal-menu .menu-item .sub-menu {
+	display: none;
+	position: absolute;
+}
+#menu-horizontal-menu .menu-item .sub-menu li {
+	display: block;
+}
+#menu-horizontal-menu .menu-item:hover .sub-menu {
+	display: block;
+	padding-top: 5px;
+}
+#menu-vertical-menu .menu-item:hover .sub-menu {
+	padding-left: 5px;
+	display: block;
+	left: 100%;
+	top: 0;
+}
+/***** Home page css ends here *****/
