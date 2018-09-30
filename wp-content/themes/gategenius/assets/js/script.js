@@ -4,7 +4,7 @@
     $('.gallery').slick({
       adaptiveHeight: true,
       autoplay: true,
-      autoplaySpeed: 3000,
+      autoplaySpeed: 3500,
       arrows: false
     });
 
@@ -12,8 +12,9 @@
     $('.results').slick({
       adaptiveHeight: true,
       autoplay: true,
-      autoplaySpeed: 3000,
-      arrows: false
+      autoplaySpeed: 5000,
+      arrows: false,
+      fade: true
     });
   });
 })(jQuery);

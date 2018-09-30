@@ -77,9 +77,9 @@ body {
 
 /***** Header css starts here *****/
 header {
-	padding: 10px 0;
+	padding: 5px 0;
 	border-bottom: 2px solid #000;
-	background: linear-gradient(to right, #144563, #2a78a8);
+	background: #0067B8;
 }
 h1 {
 	padding: 5px 0;
@@ -118,9 +118,13 @@ h1 span {
 
 /***** Footer css starts here *****/
 .main-footer {
-	padding: 10px 0;
+	padding: 9px 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
 	border-top: 1px solid #000;
-	background: linear-gradient(to right, #144563, #2a78a8);
+	background: #0067B8;
 }
 .main-footer p {
 	display: inline-block;
@@ -141,8 +145,11 @@ h1 span {
 /***** Footer css ends here *****/
 
 /***** Home page css starts here *****/
+.page-template-home body {
+	height: 100vh;
+}
 .menu-horizontal-menu-container {
-	margin-top: 15px;
+	margin-top: 10px;
 }
 .menu-horizontal-menu-container ul li,
 .menu-vertical-menu-container ul li {
@@ -156,18 +163,18 @@ h1 span {
 	text-decoration: none;
 	font-size: 16px;
 	line-height: 1.5;
-	padding: 10px;
+	padding: 8px;
 	display: block;
 	/* background: #3a2715; */
 	color: #000;
 }
-.menu-horizontal-menu-container #menu-horizontal-menu li:hover,
-.menu-vertical-menu-container #menu-vertical-menu li:hover {
+#menu-horizontal-menu.menu .menu-item:hover,
+#menu-vertical-menu.menu .menu-item:hover {
 	border-bottom: 2px solid #000;
 	transition: all 0.7s ease-out 0s;
 }
 .menu-vertical-menu-container {
-	width: calc(15% - 5px);
+	width: calc(13% - 5px);
 	/* margin-top: 10px; */
 	display: inline-block;
 	vertical-align: top;
@@ -179,7 +186,20 @@ h1 span {
 #menu-vertical-menu .menu-item {
 	position: relative;
 }
-
+#menu-horizontal-menu .menu-item.student-login {	
+	/* border-radius: 5px; */
+	box-shadow: 0 5px 8px rgba(0, 0, 0, 0.4);
+	float: right;
+	background: #0067B8;
+}	
+#menu-horizontal-menu .menu-item.student-login:hover {
+	border-bottom: 2px solid #0067B8;
+	transform: scale(.95);
+	transition: none;
+}
+#menu-horizontal-menu .menu-item.student-login a {
+	color: #fff;
+}
 #menu-vertical-menu .menu-item .sub-menu,
 #menu-horizontal-menu .menu-item .sub-menu {
 	min-width: 175px;
@@ -193,11 +213,17 @@ h1 span {
 }
 #menu-vertical-menu .menu-item .sub-menu li,
 #menu-horizontal-menu .menu-item .sub-menu li {
+	border-bottom: 2px solid rgba(0, 0, 0, 0.1);
 	width: 100%;
 }
-#menu-vertical-menu .menu-item .sub-menu li:hover,
-#menu-horizontal-menu .menu-item .sub-menu li:hover {
-	border-botttom: none;
+#menu-vertical-menu .menu-item .sub-menu li a,
+#menu-horizontal-menu .menu-item .sub-menu li a {
+	padding: 7px;
+	font-size: 14px;
+}
+#menu-horizontal-menu.menu .menu-item .sub-menu li.menu-item:hover,
+#menu-vertical-menu.menu .menu-item .sub-menu li.menu-item:hover {
+	border-bottom: 2px solid #13b192;
 	background-color: #13b192;
 }
 #menu-horizontal-menu .menu-item .sub-menu li {
@@ -216,17 +242,34 @@ h1 span {
 	z-index: 5;
 }
 .gallery.slick-slider {
-	vertical-align: top;
+	box-shadow: 0 0 10px #000;
+	vertical-align: middle;
 	display: inline-block;
 	width: calc(60% - 5px);
-	margin: 5px 0 0 5%;
+	margin: 5px 0 0 2%;
 	z-index: -1;
 }
 .gallery.slick-slider img {
 	width: 100%;
 }
-.student-login {
-	margin-left: calc(20% - 5px);
+.results.slick-slider {
+	box-shadow: 0 8px 8px rgba(0, 0, 0, 0.4);
+	margin-left: 5%;
 	display: inline-block;
+	width: 17.55%;
+	vertical-align: middle;
+}
+.results.slick-slider img {
+	width: 100%;
+}
+.results.slick-slider figcaption {
+	text-align: center;
+	padding: 5px;
+}
+.results.slick-slider figcaption span {
+	display: inline-block;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 800;
+	color: #0067B8;
 }
 /***** Home page css ends here *****/
