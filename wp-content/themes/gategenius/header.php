@@ -13,7 +13,7 @@
 	<header class="main-header">
 		<div class="wrapper clearfix">	
 			<h1 class="main-logo">
-				<a href="<?php echo get_home_url(); ?>" title="Home">gate<span>genius</span></a>
+				<a href="<?php echo get_home_url(); ?>" title="GATEGENIUS">gate<span>genius</span></a>
 			</h1>
 			<div class="social-icons">
 				<?php if (get_field('facebook_link','options')) { ?>
