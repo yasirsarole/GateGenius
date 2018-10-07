@@ -73,6 +73,14 @@ body {
 	clear: both;
 	display: table;
 }
+h2 {
+	font-size: 30px;
+	font-weight: 600;
+	margin-bottom: 35px;	
+	border-bottom: 5px solid #0067B8;
+	padding-bottom: 5px;
+	display: inline-block;	
+}
 /*****  Global code ends here *****/
 
 /***** Header css starts here *****/
@@ -119,13 +127,19 @@ h1 span {
 /***** Footer css starts here *****/
 .main-footer {
 	padding: 9px 0;
+	border-top: 1px solid #000;
+	background: #0067B8;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+/* .page-template-home .main-footer {
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	border-top: 1px solid #000;
-	background: #0067B8;
-}
+} */
 .main-footer p {
 	display: inline-block;
 	color: #fff;
@@ -145,8 +159,9 @@ h1 span {
 /***** Footer css ends here *****/
 
 /***** Home page css starts here *****/
-.page-template-home body {
+body {
 	min-height: 100vh;
+	position: relative;
 }
 .menu-horizontal-menu-container {
 	margin-top: 10px;
@@ -273,3 +288,64 @@ h1 span {
 	color: #0067B8;
 }
 /***** Home page css ends here *****/
+
+/***** FAQ page css starts here *****/
+.questionsandans {
+	padding: 50px 0;
+}
+.question {
+	position : relative;
+	cursor: pointer;
+	transition: all 0.5s;
+}
+.question::after {
+	content: "\f067";
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: #0067B8;
+	font-family: 'FontAwesome';
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+}
+.question.open::after {
+	content: "\f068";
+}
+.question span {
+	width: 90%;
+	display: block;
+	font-size: 16px;
+	color: #0067B8;
+	font-weight: 600;	
+	line-height: 1.4;
+}
+.question.close {
+	margin-bottom: 25px;
+}
+.answer {
+	width: 90%;
+}
+.answer p {
+	color: #707070;
+	margin: 15px 0 25px;
+	font-size: 16px;	
+	line-height: 1.2;
+}
+/***** FAQ page css ends here *****/
+
+/***** Media queries starts here *****/
+@media only screen and (max-width: 767px) {
+	h2 {
+		font-size: 25px;
+	}
+	.question span {
+		font-size: 14px;
+	}
+	.answer p {
+		font-size: 14px;
+    line-height: 1.4;
+	}
+}
+/***** Media queries ends here *****/

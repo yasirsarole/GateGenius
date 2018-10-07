@@ -5,7 +5,7 @@
     wp_enqueue_script('main-js', get_stylesheet_directory_uri() . '/assets/js/script.js', array('jquery'), time(), true);
     wp_enqueue_style('raleway-font', 'https://fonts.googleapis.com/css?family=Raleway', array(), time(), false);
     wp_enqueue_style('mons-font', 'https://fonts.googleapis.com/css?family=Montserrat', array(), time(), false);
-    wp_enqueue_style('font-awesome', 'https://use.fontawesome.com/releases/v5.3.1/css/all.css', array(), time(), false);
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css', array(), time(), false);
     wp_enqueue_script('jquery', 'http://code.jquery.com/jquery-1.11.0.min.js', array(), time(), true);
     wp_enqueue_script('jquery-migrate', 'http://code.jquery.com/jquery-migrate-1.2.1.min.js', array(), time(), true);
     wp_enqueue_style('slick-style', 'http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', array(), time(), false);

@@ -17,13 +17,13 @@
 			</h1>
 			<div class="social-icons">
 				<?php if (get_field('facebook_link','options')) { ?>
-					<a href="#" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+					<a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook-f"></i></a>
 				<?php } ?>
 				<?php if (get_field('instagram_link','options')) { ?>
-					<a href="#" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+					<a href="#" title="Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
 				<?php } ?>
 				<?php if (get_field('youtube_link','options')) { ?>
-					<a href="#" title="Youtube" target="_blank"><i class="fab fa-youtube"></i></a>
+					<a href="#" title="Youtube" target="_blank"><i class="fa fa-youtube-play"></i></a>
 				<?php } ?>
 			</div>
 		</div>
