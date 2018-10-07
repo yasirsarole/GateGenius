@@ -119,9 +119,6 @@ h1 span {
 	padding: 10px;
 	transition: 0.5s;	
 }
-.social-icons a:hover {
-	opacity: 0.5;
-}
 /***** Header css ends here *****/
 
 /***** Footer css starts here *****/
@@ -148,9 +145,6 @@ h1 span {
 .main-footer p a {
 	color: #fff;
 	transition: 0.5s;	
-}
-.main-footer p a:hover {
-	text-decoration: none;
 }
 .main-footer .developer {
 	font-size: 12px;
@@ -192,10 +186,6 @@ h1 span {
 	padding-bottom: 5px;
 	display: inline-block;	
 	transition: all 0.5s;
-}
-#menu-footer-menu-1 .menu-item a:hover,
-#menu-footer-menu-2 .menu-item a:hover {
-	color: #79a9ce;
 }
 #menu-footer-menu-1 .menu-item .sub-menu,
 #menu-footer-menu-2 .menu-item .sub-menu {
@@ -255,11 +245,6 @@ body main{
 	/* background: #3a2715; */
 	color: #000;
 }
-#menu-horizontal-menu.menu .menu-item:hover,
-#menu-vertical-menu.menu .menu-item:hover {
-	border-bottom: 2px solid #000;
-	transition: all 0.7s ease-out 0s;
-}
 .menu-vertical-menu-container {
 	width: calc(13% - 5px);
 	margin-top: 10px;
@@ -279,11 +264,6 @@ body main{
 	float: right;
 	background: #0067B8;
 }	
-#menu-horizontal-menu .menu-item.student-login:hover {
-	border-bottom: 2px solid #0067B8;
-	transform: scale(.95);
-	transition: none;
-}
 #menu-horizontal-menu .menu-item.student-login a {
 	color: #fff;
 }
@@ -308,25 +288,8 @@ body main{
 	padding: 7px;
 	font-size: 14px;
 }
-#menu-horizontal-menu.menu .menu-item .sub-menu li.menu-item:hover,
-#menu-vertical-menu.menu .menu-item .sub-menu li.menu-item:hover {
-	border-bottom: 2px solid #13b192;
-	background-color: #13b192;
-}
 #menu-horizontal-menu .menu-item .sub-menu li {
 	display: block;
-}
-#menu-horizontal-menu .menu-item:hover .sub-menu {
-	display: block;
-	/* padding-top: 5px; */
-	z-index: 5;
-}
-#menu-vertical-menu .menu-item:hover .sub-menu {
-	/* padding-left: 5px; */
-	display: block;
-	left: 100%;
-	top: 0;
-	z-index: 5;
 }
 .gallery.slick-slider {
 	box-shadow: 0 0 10px #000;
@@ -408,6 +371,45 @@ body main{
 /***** FAQ page css ends here *****/
 
 /***** Media queries starts here *****/
+@media only screen and (min-width: 768px) {
+	.social-icons a:hover {
+		opacity: 0.5;
+	}
+	.main-footer p a:hover {
+		text-decoration: none;
+	}
+	#menu-footer-menu-1 .menu-item a:hover,
+	#menu-footer-menu-2 .menu-item a:hover {
+		color: #79a9ce;
+	}
+	#menu-horizontal-menu.menu .menu-item:hover,
+	#menu-vertical-menu.menu .menu-item:hover {
+		border-bottom: 2px solid #000;
+		transition: all 0.7s ease-out 0s;
+	}
+	#menu-horizontal-menu .menu-item.student-login:hover {
+		border-bottom: 2px solid #0067B8;
+		transform: scale(.95);
+		transition: none;
+	}
+	#menu-horizontal-menu.menu .menu-item .sub-menu li.menu-item:hover,
+	#menu-vertical-menu.menu .menu-item .sub-menu li.menu-item:hover {
+		border-bottom: 2px solid #13b192;
+		background-color: #13b192;
+	}
+	#menu-horizontal-menu .menu-item:hover .sub-menu {
+		display: block;
+		/* padding-top: 5px; */
+		z-index: 5;
+	}
+	#menu-vertical-menu .menu-item:hover .sub-menu {
+		/* padding-left: 5px; */
+		display: block;
+		left: 100%;
+		top: 0;
+		z-index: 5;
+	}	
+}
 @media only screen and (max-width: 992px) {
 	.quick-link {
 		text-align: center;
@@ -455,6 +457,9 @@ body main{
 	}
 }
 @media only screen and (max-width: 767px) {
+	h1 a {
+		font-size: 22px;
+	}
 	h2 {
 		font-size: 25px;
 	}

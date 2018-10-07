@@ -20,8 +20,9 @@
     // FAQ accordion
     $('.answer').hide();
     $('.answer').first().show();
-    $('.question').first().addClass('open');
     $('.question').addClass('close');
+    $('.question').first().addClass('open');
+    $('.question').first().removeClass('close');
     $('.question').on('click', function(e) {
       e.preventDefault();
       if ($(this).hasClass('close')) {
