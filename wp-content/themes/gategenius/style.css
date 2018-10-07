@@ -222,6 +222,9 @@ h1 span {
 .hasChild.open a::after {
 	content: "\f068";
 }
+.footer-menus .sub-menu a {
+	text-decoration: underline !important;
+}
 .footer-menus .sub-menu a::after {
 	content: "";
 }
@@ -405,6 +408,52 @@ body main{
 /***** FAQ page css ends here *****/
 
 /***** Media queries starts here *****/
+@media only screen and (max-width: 992px) {
+	.quick-link {
+		text-align: center;
+	}
+	.menu-footer-menu-1-container, 
+	.menu-footer-menu-2-container	 {
+		display: block;
+    width: 80%;
+    margin: 0 auto;
+	}
+	#menu-footer-menu-1 li,
+	#menu-footer-menu-2 li {
+		text-align: center;
+	}
+	#menu-footer-menu-1 li .sub-menu,
+	#menu-footer-menu-2 li .sub-menu {
+		text-align: left;
+	}
+	#menu-footer-menu-1 {
+		margin-bottom: 20px;
+	}
+	#menu-horizontal-menu li {
+		display: none;
+	}
+	#menu-horizontal-menu .menu-item.student-login {
+		display: block;
+		width: 100%;
+		text-align: center;
+		margin-bottom: 35px;
+	}
+	.menu-vertical-menu-container {
+		display: none;
+	}
+	.gallery.slick-slider {
+		width: 100%;
+    height: auto;
+    margin: 0 0 35px;
+	}
+	.results.slick-slider {
+		margin: 0 auto 35px;
+    width: 35%;
+    height: auto;
+    text-align: center;
+    display: block;
+	}
+}
 @media only screen and (max-width: 767px) {
 	h2 {
 		font-size: 25px;
@@ -415,6 +464,32 @@ body main{
 	.answer p {
 		font-size: 14px;
     line-height: 1.4;
+	}
+	.menu-footer-menu-1-container, 
+	.menu-footer-menu-2-container	 {
+		width: 100%;
+	}	
+	.menu-footer-menu-1-container li, 
+	.menu-footer-menu-2-container	li {
+		display: block;
+		width: 100%;
+	}
+	.menu-footer-menu-1-container .sub-menu, 
+	.menu-footer-menu-2-container	.sub-menu {
+		text-align: center;
+	}
+	.bottom-info .copy,
+	.bottom-info .developer {
+		display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+	}
+	.bottom-info .developer {
+		margin-bottom: 0;
+	}
+	.results.slick-slider {
+		min-width: 200px;
 	}
 }
 /***** Media queries ends here *****/
