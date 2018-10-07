@@ -41,7 +41,9 @@
     register_nav_menus(
       array(
         'header-menu' => __( 'Main Menu' ),
-        'extra-menu' => __( 'Extra Menu' )
+        'extra-menu' => __( 'Extra Menu' ),
+        'footer-menu1' => __( 'Footer Menu1' ),
+        'footer-menu2' => __( 'Footer Menu2' ),
       )
     );
   }

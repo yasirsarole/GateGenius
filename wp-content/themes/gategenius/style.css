@@ -126,13 +126,14 @@ h1 span {
 
 /***** Footer css starts here *****/
 .main-footer {
+	min-height: 144px;
 	padding: 9px 0;
 	border-top: 1px solid #000;
 	background: #0067B8;
-	position: absolute;
+	/* position: absolute;
 	left: 0;
 	right: 0;
-	bottom: 0;
+	bottom: 0; */
 }
 /* .page-template-home .main-footer {
 	position: absolute;
@@ -156,11 +157,79 @@ h1 span {
 	float: right;
 	text-transform: capitalize;
 }
+.quick-link {
+	display: block;
+	color: #fff;
+	text-decoration: underline;
+	text-transform: uppercase;
+	font-size: 12px;
+	line-height: 1.4;	
+	margin-bottom: 10px;	
+}
+.footer-menus {
+	margin-bottom: 20px;
+}
+.menu-footer-menu-1-container,
+.menu-footer-menu-2-container {
+	display: inline-block;
+	width: calc(50% - 5px);
+	vertical-align: top;
+	font-size: 12px;
+	line-height: 1.4;	
+}
+.menu-footer-menu-1-container li,
+.menu-footer-menu-2-container li {
+	display: inline-block;
+	width: calc(50% - 5px);
+	vertical-align: top;
+	margin-bottom: 5px;
+}
+#menu-footer-menu-1 .menu-item a,
+#menu-footer-menu-2 .menu-item a{
+	text-decoration: none;
+	color: #95caf4;
+	font-weight: 600;
+	padding-bottom: 5px;
+	display: inline-block;	
+	transition: all 0.5s;
+}
+#menu-footer-menu-1 .menu-item a:hover,
+#menu-footer-menu-2 .menu-item a:hover {
+	color: #79a9ce;
+}
+#menu-footer-menu-1 .menu-item .sub-menu,
+#menu-footer-menu-2 .menu-item .sub-menu {
+	display: none;
+}
+.hasChild {
+	cursor: pointer;
+}
+.hasChild a {
+	padding-right: 15px;
+	position: relative;
+}
+.hasChild a::after {
+	content: "\f067";
+	font-family: FontAwesome;
+	color: #95caf4;
+	padding-bottom: 5px;
+	display: inline-block;
+	font-size: 11px;
+	position: absolute;
+	top: 1px;
+	right: -10px;
+}
+.hasChild.open a::after {
+	content: "\f068";
+}
+.footer-menus .sub-menu a::after {
+	content: "";
+}
 /***** Footer css ends here *****/
 
 /***** Home page css starts here *****/
-body {
-	min-height: 100vh;
+body main{
+	min-height: 63vh;
 	position: relative;
 }
 .menu-horizontal-menu-container {

@@ -2,7 +2,7 @@
 /*
 Template Name: Home
 */
-get_header();
+get_header('home');
 ?>
 <main class="website-main">
   <div class="wrapper">
