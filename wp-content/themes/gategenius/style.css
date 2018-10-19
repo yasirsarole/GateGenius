@@ -221,7 +221,7 @@ h1 span {
 /***** Footer css ends here *****/
 
 /***** Home page css starts here *****/
-body main{
+.page-template-home main{
 	min-height: 63vh;
 	position: relative;
 }
@@ -370,7 +370,82 @@ body main{
 }
 /***** FAQ page css ends here *****/
 
+/***** Login page css starts here *****/
+.page-template-login div.main-content {
+	min-width: 315px;
+	width: 27.45%;
+	border-radius: 8px;
+	margin: 76px auto;
+	background-color: #dedfe0;
+}
+.page-template-login div.um-field-username {
+	padding: 0;
+}
+.page-template-login div.um-form {
+	width: 85.6%;
+	padding: 25px 0;
+	margin: 0 auto;
+}
+.page-template-login div.um-field-label {
+	display: none;
+}
+.page-template-login .um .um-form input[type=text],
+.page-template-login .um .um-form input[type=password]{
+	border: none !important;
+	border-radius: 3px;
+}
+.page-template-login .um-field-username::before {
+	content: "\f007";
+	font-family: FontAwesome;
+	font-size: 25px;
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	vertical-align: middle;
+}
+.page-template-login .um-field-user_password::before {
+	content: "\f023";
+	font-family: FontAwesome;
+	font-size: 25px;
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	vertical-align: middle;	
+}
+.page-template-login .um-field-area {
+	width: 87%;
+	display: inline-block;
+	vertical-align: middle;
+}
+.page-template-login .um input[type=submit].um-button {
+	box-sizing: border-box;
+	padding: 10px 0 !important;
+	min-width: 100% !important;	
+}
+.page-template-login .login-heading {
+	font-size: 16px;
+	display: block;
+	margin: 0 auto;
+	padding: 10px 7.2%;
+	background: #c7c9cc;
+	font-weight: 600;
+	color: #545454;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+.page-template-login .um-field-error {
+	padding: 10px;
+	font-size: 12px;
+}
+/***** Login page css ends here *****/
+
 /***** Media queries starts here *****/
+@media only screen and (max-width: 480px) {
+	.page-template-login div.main-content {
+		width: 100%;
+		min-width: auto;
+	}	
+}
 @media only screen and (min-width: 768px) {
 	.social-icons a:hover {
 		opacity: 0.5;

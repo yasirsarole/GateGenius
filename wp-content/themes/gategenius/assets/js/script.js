@@ -63,6 +63,11 @@
         $(this).addClass('close');
       }
     });
+
+    // Login Page Js
+    $('.page-template-login .um input[type=submit].um-button').val('Sign In');
+    $("<span>Login</span>").insertBefore(".page-template-login div.um-form");
+    $('.page-template-login div.um-form').prev('span').addClass('login-heading');
   });
   // Ready function end
 })(jQuery);
