@@ -52,6 +52,18 @@ table {
 /*****  Reset css code ends here *****/
 
 /*****  Global code starts here *****/
+@font-face {
+	font-family: Arial;
+	src: url(assets/fonts/arial/arial-webfont.woff);
+}
+@font-face {
+	font-family: Arial;
+	src: url(assets/fonts/arial/arial-webfont.woff2);
+}
+@font-face {
+	font-family: Arial;
+	src: url(assets/fonts/arial/arial.ttf);
+}
 body {
 	/* background: url('assets/images/four.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -62,7 +74,7 @@ body {
 }
 .wrapper {
 	max-width: 1440px;
-	width: 85%;
+	width: 95%;
 	margin: 0 auto;  
 }
 .clearfix {
@@ -371,6 +383,9 @@ h1 span {
 /***** FAQ page css ends here *****/
 
 /***** Login page css starts here *****/
+.page-template-login {
+	font-family: Arial, Helvetica, sans-serif;
+}
 .page-template-login div.main-content {
 	min-width: 315px;
 	width: 27.45%;
@@ -433,19 +448,170 @@ h1 span {
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
 }
+.page-template-login .main-content .um-logout .login-heading {
+	display: none;
+}
 .page-template-login .um-field-error {
 	padding: 10px;
 	font-size: 12px;
 }
+.page-template-login p.um-notice a {
+	display: none;
+}
 /***** Login page css ends here *****/
 
-/***** Media queries starts here *****/
-@media only screen and (max-width: 480px) {
-	.page-template-login div.main-content {
-		width: 100%;
-		min-width: auto;
-	}	
+/***** General Instructions css starts here ****/
+.page-template-general-ins .website-main {
+	border-bottom: 20px solid #617B8C;
 }
+.page-template-general-ins {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.page-template-general-ins .left-section,
+.page-template-general-ins .right-section {
+	display: inline-block;
+	vertical-align: top;
+}
+.page-template-general-ins .left-section {
+	width: calc(78% - 5px);
+	height: 67vh;
+	padding-top: 20px;
+	border-right: 2px solid #000;
+	overflow-y: scroll;
+}
+.page-template-general-ins .right-section {
+	width: calc(22% - 5px);
+}
+.heading-top {
+	/* width: calc(78% - 5px); */
+	padding: 10px 0;
+	/* margin-bottom: 20px; */
+	background: #BCE8F5;
+}
+.instruction-top {
+	padding: 0;
+	margin: 0;
+	line-height: 1.5;
+	font-size: 20px;
+	font-weight: bold;
+	color: #676568;
+	text-transform: capitalize;
+	border: none;
+	display: block;
+}
+.general-instruction {
+	color: #001A50;
+	font-size: 28px;
+	text-transform: capitalize;
+	text-decoration: underline;
+	font-weight: bold;
+	line-height: 1.5;
+	text-align: center;
+}
+.instruction-content {
+	font-family: initial;
+}
+.instruction-content strong {
+	font-weight: 600;
+}
+.instruction-content h4 {
+	margin: 15px 0 20px;
+	font-size: large;
+	font-weight: bold;
+}
+.instruction-content h5 {
+	font-weight: bold;
+	padding: 15px 0;
+}
+.instruction-content ol {
+	padding-left: 40px;
+	list-style-type: decimal;
+}
+.instruction-content ol li {
+	font-size: 16px;
+	line-height: 1.2;
+}
+.instruction-content ol li img {
+	display: inline-block;
+	vertical-align: middle;
+}
+.instruction-content ol li ol {
+	list-style-type: lower-latin;
+}
+.instruction-content ol li ul {
+	padding: 8px 0;
+}
+.instruction-content ol li ul:first-of-type li::before {
+	width: 30px;
+	height: 30px;
+	padding-top: 8px;
+	margin-right: 5px;
+	display: inline-block;
+	text-align: center;
+}
+.instruction-content ol li ul:first-of-type li:first-of-type::before {
+	content: "1";
+	background: url(assets/images/questions-sprite3.png) no-repeat 100%/100%;
+}
+.instruction-content ol li ul:first-of-type li:nth-of-type(2)::before {
+	content: "2";
+	background: url(assets/images/questions-sprite2.png) no-repeat 100%/100%;
+}
+.instruction-content ol li ul:first-of-type li:nth-of-type(3)::before {
+	content: "3";
+	background: url(assets/images/questions-sprite.png) no-repeat 100%/100%;
+}
+.instruction-content ol li ul:first-of-type li:nth-of-type(4)::before {
+	content: "4";
+	background: url(assets/images/questions-sprite4.png) no-repeat 100%/100%;
+}
+.instruction-content ol li ul:first-of-type li:last-of-type::before {
+	content: "5";
+	background: url(assets/images/questions-sprite6.png) no-repeat 100%/100%;
+}
+.nextbutton {
+	/* width: calc(78% - 5px); */
+	padding: 10px 0;
+	border-top: 1px solid #c8c8c8;
+	text-align: right;
+}
+.nextbutton a {
+	display: inline-block;
+	padding: 10px 20px;
+	border: 1px solid #c8c8c8;
+	border-radius: 2px;
+	cursor: pointer;
+	text-decoration: none;
+	text-transform: capitalize;
+	font-size: 16px;
+	color: #252525;
+	font-weight: 600;
+	transition: 0.3s all;
+}
+.mobile-right-section {
+	display: none;
+}
+.student-image {
+	margin: 20px auto 0;
+	width: 60%;
+	height: auto;
+}
+.student-image img {
+	width: 100%;
+	display: block;
+	height: auto;
+}
+.student-name {
+	display: block;
+	text-align: center;
+	margin-top: 10px;
+	font-size: 20px;
+	color: rgb(79, 104, 135);
+	font-weight: 600;
+}
+/***** General Instructions css ends here ****/
+
+/***** Media queries starts here *****/
 @media only screen and (min-width: 768px) {
 	.social-icons a:hover {
 		opacity: 0.5;
@@ -484,8 +650,15 @@ h1 span {
 		top: 0;
 		z-index: 5;
 	}	
+	.nextbutton a:hover {
+		background: #0c7cd5;
+		color: #fff;
+	}
 }
 @media only screen and (max-width: 992px) {
+	.wrapper {
+		width: 85%;
+	}
 	.quick-link {
 		text-align: center;
 	}
@@ -530,6 +703,25 @@ h1 span {
     text-align: center;
     display: block;
 	}
+	.page-template-general-ins .mobile-right-section {
+		display: block;
+	}
+	.page-template-general-ins .student-image {
+		width: 30%;
+		min-width: 120px;
+	}
+	.page-template-general-ins .left-section {
+		height: auto;
+    overflow: hidden;
+    border: none;
+    width: 100%;		
+	}
+	.page-template-general-ins .right-section {
+		display: none;
+	}
+	.page-template-general-ins .nextbutton {
+		text-align: center;
+	}
 }
 @media only screen and (max-width: 767px) {
 	h1 a {
@@ -570,6 +762,18 @@ h1 span {
 	}
 	.results.slick-slider {
 		min-width: 200px;
+	}
+}
+@media only screen and (max-width: 480px) {
+	.page-template-login div.main-content {
+		width: 100%;
+		min-width: auto;
+	}
+	.page-template-general-ins .student-name {
+		font-size: 18px;
+	}	
+	.page-template-general-ins .instruction-content ol {
+		padding-left: 20px;
 	}
 }
 /***** Media queries ends here *****/

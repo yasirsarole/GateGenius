@@ -68,6 +68,7 @@
     $('.page-template-login .um input[type=submit].um-button').val('Sign In');
     $("<span>Login</span>").insertBefore(".page-template-login div.um-form");
     $('.page-template-login div.um-form').prev('span').addClass('login-heading');
+    $('.page-template-login .main-content .um-logout').next('.login-heading').hide();
   });
   // Ready function end
 })(jQuery);
