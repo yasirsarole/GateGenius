@@ -69,6 +69,28 @@
     $("<span>Login</span>").insertBefore(".page-template-login div.um-form");
     $('.page-template-login div.um-form').prev('span').addClass('login-heading');
     $('.page-template-login .main-content .um-logout').next('.login-heading').hide();
+
+    // General Instructions page JS
+    $('.ready-to-begin').attr('disabled','disabled');
+
+    $('.ready-to-begin').click(function() {
+      if ($('.ready-to-begin').attr('disabled') == "disabled") {
+        return false;
+      }
+      else {
+          $('.ready-to-begin').trigger('click');
+      }
+    });
+        
+    $('.previousbutton input[type="checkbox"]').on('click', function() {
+      if ($('.previousbutton input[type="checkbox"]:checked').length) {
+        $('.ready-to-begin').removeAttr('disabled');
+        $('.ready-to-begin').css('cssText','cursor:pointer;');
+      } else {
+        $('.ready-to-begin').attr('disabled','disabled');
+        $('.ready-to-begin').css('cssText','cursor:not-allowed;');
+      }
+    });
   });
   // Ready function end
 })(jQuery);

@@ -1,14 +1,14 @@
 <?php
 /*
 * Template for displaying general instructions
-* Template Name: General Instruction
+* Template Name: General Instructions 2
 */
 get_header('home');
 ?>
 <main class="website-main">
   <div class="heading-top">
     <div class="wrapper">
-      <h2 class="instruction-top">instructionss</h2>
+      <h2 class="instruction-top">other important instructions</h2>
     </div>
   </div>
   <div class="wrapper">
@@ -31,7 +31,12 @@ get_header('home');
         <span class="student-name"><?php echo $userName; ?></span>
     </div>    
     <div class="left-section">
-      <h3 class="general-instruction">general instruction</h3>
+      <h3 class="general-instruction">paper specific instructions</h3>
+      <h6 class="subject">ME: Mechanical Engineering</h6>
+      <div class="duration clearfix">
+        <span class="time"><i>Duration</i> : 180 minutes</span>
+        <span class="marks"><i>Total Marks</i> : 100</span>
+      </div>
       <div class="instruction-content">
         <?php
         while ( have_posts() ) :
@@ -60,9 +65,13 @@ get_header('home');
         <span class="student-name"><?php echo $userName; ?></span>
     </div>
   </div>
-  <div class="nextbutton">
-    <div class="wrapper">
-      <a href="<?php echo get_permalink(get_field('general_instruction_2')); ?>" title="Next">next ></a>
+  <div class="nextbutton previousbutton">
+    <div class="wrapper clearfix">
+      <input type="checkbox" name="declaration">
+      <p class="declaration"><span>Declaration by the Candidate:</span> I have read and understood all the instructions. All the computer hardware allotted to me are in proper working condition. I declare that I am not carrying any prohibited gadgets like mobile phone, bluetooth devices, wrist watches, etc. and any prohibited material with me into the examination hall. I agree that if found to be non-complaint with the above declaration, I shall be liable to be debarred from this examination and / or to disciplinary action, which may include ban from future examinations / tests.</p>
+      <a href="<?php echo get_permalink(get_field('general_instruction_2')); ?>" title="Next" class="desktop-previous">< previous</a>
+      <a href="#" class="ready-to-begin">I am ready to begin</a>
+      <a href="<?php echo get_permalink(get_field('general_instruction_2')); ?>" title="Next" class="mobile-previous">< previous</a>
     </div>
   </div>
 </main>

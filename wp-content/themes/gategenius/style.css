@@ -461,25 +461,35 @@ h1 span {
 /***** Login page css ends here *****/
 
 /***** General Instructions css starts here ****/
-.page-template-general-ins .website-main {
+.page-template-general-ins .main-footer,
+.page-template-general-inst-two .main-footer {
+	display: none;
+}
+.page-template-general-ins .website-main,
+.page-template-general-inst-two .website-main {
 	border-bottom: 20px solid #617B8C;
 }
-.page-template-general-ins {
+.page-template-general-ins,
+.page-template-general-inst-two {
 	font-family: Arial, Helvetica, sans-serif;
 }
 .page-template-general-ins .left-section,
-.page-template-general-ins .right-section {
+.page-template-general-ins .right-section,
+.page-template-general-inst-two .left-section,
+.page-template-general-inst-two .right-section {
 	display: inline-block;
 	vertical-align: top;
 }
-.page-template-general-ins .left-section {
+.page-template-general-ins .left-section,
+.page-template-general-inst-two .left-section {
 	width: calc(78% - 5px);
 	height: 67vh;
 	padding-top: 20px;
 	border-right: 2px solid #000;
 	overflow-y: scroll;
 }
-.page-template-general-ins .right-section {
+.page-template-general-ins .right-section,
+.page-template-general-inst-two .right-section {
 	width: calc(22% - 5px);
 }
 .heading-top {
@@ -549,23 +559,23 @@ h1 span {
 	display: inline-block;
 	text-align: center;
 }
-.instruction-content ol li ul:first-of-type li:first-of-type::before {
+.page-template-general-ins .instruction-content ol li ul:first-of-type li:first-of-type::before {
 	content: "1";
 	background: url(assets/images/questions-sprite3.png) no-repeat 100%/100%;
 }
-.instruction-content ol li ul:first-of-type li:nth-of-type(2)::before {
+.page-template-general-ins .instruction-content ol li ul:first-of-type li:nth-of-type(2)::before {
 	content: "2";
 	background: url(assets/images/questions-sprite2.png) no-repeat 100%/100%;
 }
-.instruction-content ol li ul:first-of-type li:nth-of-type(3)::before {
+.page-template-general-ins .instruction-content ol li ul:first-of-type li:nth-of-type(3)::before {
 	content: "3";
 	background: url(assets/images/questions-sprite.png) no-repeat 100%/100%;
 }
-.instruction-content ol li ul:first-of-type li:nth-of-type(4)::before {
+.page-template-general-ins .instruction-content ol li ul:first-of-type li:nth-of-type(4)::before {
 	content: "4";
 	background: url(assets/images/questions-sprite4.png) no-repeat 100%/100%;
 }
-.instruction-content ol li ul:first-of-type li:last-of-type::before {
+.page-template-general-ins .instruction-content ol li ul:first-of-type li:last-of-type::before {
 	content: "5";
 	background: url(assets/images/questions-sprite6.png) no-repeat 100%/100%;
 }
@@ -608,6 +618,78 @@ h1 span {
 	font-size: 20px;
 	color: rgb(79, 104, 135);
 	font-weight: 600;
+}
+.left-section .subject {
+	margin-top: 50px;
+	font-size: 16px;
+	font-weight: 600;
+	text-align: center;
+}
+.duration {
+	margin-top: 25px;
+}
+.duration span {
+	font-size: 16px;
+	font-weight: bold;
+	font-family: initial;
+}
+.duration span i {
+	font-weight: normal;
+	font-style: italic;
+}
+.duration span.marks {
+	padding-right: 15px;
+	float: right;
+}
+.page-template-general-inst-two ol li {
+	margin-bottom: 10px;
+}
+.page-template-general-inst-two ol li ol li {
+	margin-bottom: 0;
+}
+.previousbutton {
+	text-align: center;
+}
+.previousbutton a {
+	float: left;
+}
+.previousbutton input[type="checkbox"] {
+	display: inline-block;
+	float: left;
+	vertical-align: top;
+	width: calc(2% - 5px);
+}
+.declaration {
+	display: inline-block;
+	vertical-align: top;
+	width: calc(98% - 5px);
+	font-size: 12px;
+	line-height: 1.5;
+	text-align: left;
+	margin-bottom: 10px;
+}
+.declaration span {
+	color: #303030;
+	font-weight: 600;
+}
+.page-template-general-inst-two .left-section {
+	height: 56.5vh;
+}
+.previousbutton .mobile-previous {
+	display: none;
+}
+.previousbutton a.ready-to-begin {
+	text-decoration: none;
+	font-size: 12px;
+	padding: 10px 20px;
+	background-color: #38aae9;
+	border: 1px solid #c8c8c8;
+	color: #fff;
+	border-radius: 2px;
+	font-weight: 400;
+	float: unset; 
+	text-transform: unset;
+	cursor: not-allowed;
 }
 /***** General Instructions css ends here ****/
 
@@ -703,24 +785,62 @@ h1 span {
     text-align: center;
     display: block;
 	}
-	.page-template-general-ins .mobile-right-section {
+	.page-template-general-ins .mobile-right-section,
+	.page-template-general-inst-two .mobile-right-section {
 		display: block;
 	}
-	.page-template-general-ins .student-image {
+	.page-template-general-ins .student-image,
+	.page-template-general-inst-two .student-image {
 		width: 30%;
 		min-width: 120px;
 	}
-	.page-template-general-ins .left-section {
+	.page-template-general-ins .left-section,
+	.page-template-general-inst-two .left-section {
 		height: auto;
     overflow: hidden;
     border: none;
     width: 100%;		
 	}
-	.page-template-general-ins .right-section {
+	.page-template-general-ins .right-section,
+	.page-template-general-inst-two .right-section {
 		display: none;
 	}
-	.page-template-general-ins .nextbutton {
+	.page-template-general-ins .nextbutton,
+	.page-template-general-inst-two .nextbutton {
 		text-align: center;
+	}
+	.nextbutton a {
+		width: 100%;
+    box-sizing: border-box;
+	}
+	.previousbutton input[type="checkbox"] {
+		width: 20px;
+	}
+	.declaration {
+		width: 88%;
+	}
+	.previousbutton .desktop-previous {
+		display: none;
+	}
+	.previousbutton .mobile-previous {
+		box-sizing: border-box;
+		display: block;
+		float: none;
+    margin-top: 15px;
+	}
+	.previousbutton .mobile-previous:hover {
+		border: 1px solid #c8c8c8;
+		color: #252525;
+		background-color: #fff;
+	}
+	.previousbutton a.ready-to-begin {
+		box-sizing: border-box;
+		width: 100%;
+	}
+	.previousbutton a.ready-to-begin:hover {
+		background-color: #38aae9;
+    border: 1px solid #c8c8c8;
+    color: #fff;
 	}
 }
 @media only screen and (max-width: 767px) {
@@ -769,11 +889,18 @@ h1 span {
 		width: 100%;
 		min-width: auto;
 	}
-	.page-template-general-ins .student-name {
+	.page-template-general-ins .student-name,
+	.page-template-general-inst-two .student-name {
 		font-size: 18px;
 	}	
-	.page-template-general-ins .instruction-content ol {
+	.page-template-general-ins .instruction-content ol,
+	.page-template-general-inst-two .instruction-content ol {
 		padding-left: 20px;
+	}
+	.duration span.marks {
+		float: none;
+    display: block;
+    margin-top: 10px;
 	}
 }
 /***** Media queries ends here *****/
