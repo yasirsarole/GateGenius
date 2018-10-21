@@ -4,7 +4,7 @@
 * Template Name: Login
 */
 
-get_header('home');
+get_header();
 ?>
 <main class="website-main">
   <div class="wrapper">

@@ -44,6 +44,7 @@
         'extra-menu' => __( 'Extra Menu' ),
         'footer-menu1' => __( 'Footer Menu1' ),
         'footer-menu2' => __( 'Footer Menu2' ),
+        'hamburger-menu' => __( 'Hamburger Menu' ),
       )
     );
   }

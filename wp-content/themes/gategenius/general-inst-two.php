@@ -3,8 +3,9 @@
 * Template for displaying general instructions
 * Template Name: General Instructions 2
 */
-get_header('home');
+get_header();
 ?>
+<?php if (is_user_logged_in()) { ?>
 <main class="website-main">
   <div class="heading-top">
     <div class="wrapper">
@@ -69,10 +70,15 @@ get_header('home');
     <div class="wrapper clearfix">
       <input type="checkbox" name="declaration">
       <p class="declaration"><span>Declaration by the Candidate:</span> I have read and understood all the instructions. All the computer hardware allotted to me are in proper working condition. I declare that I am not carrying any prohibited gadgets like mobile phone, bluetooth devices, wrist watches, etc. and any prohibited material with me into the examination hall. I agree that if found to be non-complaint with the above declaration, I shall be liable to be debarred from this examination and / or to disciplinary action, which may include ban from future examinations / tests.</p>
-      <a href="<?php echo get_permalink(get_field('general_instruction_2')); ?>" title="Next" class="desktop-previous">< previous</a>
-      <a href="#" class="ready-to-begin">I am ready to begin</a>
-      <a href="<?php echo get_permalink(get_field('general_instruction_2')); ?>" title="Next" class="mobile-previous">< previous</a>
+      <a href="<?php echo get_permalink(get_field('redirect_link')); ?>" title="Next" class="desktop-previous">< previous</a>
+      <a href="<?php echo get_permalink(get_field('test_link')); ?>" class="ready-to-begin">I am ready to begin</a>
+      <a href="<?php echo get_permalink(get_field('redirect_link')); ?>" title="Next" class="mobile-previous">< previous</a>
     </div>
   </div>
 </main>
+<?php } else {
+  $homeUrl = get_home_url().'/login';
+  header("Location: $homeUrl");
+  die();
+} ?>
 <?php get_footer(); ?>

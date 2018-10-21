@@ -6,7 +6,6 @@
   <div class="wrapper">
     <span class="quick-link">quick links:</span>
     <div class="footer-menus">
-      <?php wp_nav_menu(array( 'theme_location' => 'footer-menu1' )); ?>
       <?php wp_nav_menu(array( 'theme_location' => 'footer-menu2' )); ?>
     </div>
     <div class="bottom-info">    

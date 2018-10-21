@@ -3,12 +3,12 @@
 * Template for displaying general instructions
 * Template Name: General Instruction
 */
-get_header('home');
+get_header();
 ?>
 <main class="website-main">
   <div class="heading-top">
     <div class="wrapper">
-      <h2 class="instruction-top">instructionss</h2>
+      <h2 class="instruction-top">instructions</h2>
     </div>
   </div>
   <div class="wrapper">
@@ -62,7 +62,7 @@ get_header('home');
   </div>
   <div class="nextbutton">
     <div class="wrapper">
-      <a href="<?php echo get_permalink(get_field('general_instruction_2')); ?>" title="Next">next ></a>
+      <a href="<?php echo get_permalink(get_field('redirect_link')); ?>" title="Next">next ></a>
     </div>
   </div>
 </main>
