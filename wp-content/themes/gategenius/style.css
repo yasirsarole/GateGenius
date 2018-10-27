@@ -64,6 +64,9 @@ table {
 	font-family: Arial;
 	src: url(assets/fonts/arial/arial.ttf);
 }
+* {
+	outline: none;
+}
 body {
 	/* background: url('assets/images/four.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -106,17 +109,22 @@ header {
 }
 .not-home {
 	text-align: center;
-}
-.not-home .wrapper {
 	position: relative;
 }
-.nav-menu {
+.not-home .nav-menu {
+	display: none;
 	text-align: left;
-	display: inline-block;
+	position: absolute;
+	top: 100%;
+	background: #85d2fc;
+	z-index: 5;
+	padding: 10px;
+	border-radius: 5px;
+	margin: 2px;
 }
 .hamburger {
 	position: absolute;
-	left: 0;
+	left: 2.5%;
 	top: 50%;
 	transform: translateY(-50%);
 	vertical-align: middle;
@@ -132,14 +140,35 @@ header {
 .hamburger.inactive::after {
 	content: "\f00d";
 }
-.top-menus {
-	display: none;
-	position: absolute;
+#menu-hamburger-menu .menu-item a {
+	text-decoration: none;
+	padding: 5px;
+	display: block;
+	font-size: 16px;
+	line-height: 1.2;
+	font-weight: 600;
+	color: #000;
 }
-/* .not-home .nav-menu {
+#menu-hamburger-menu .sub-menu {
+	padding-left: 10px;
 	display: none;
-	position: absolute;
-} */
+}
+#menu-hamburger-menu .sub-menu .menu-item a {
+	font-size: 14px;
+}
+#menu-hamburger-menu .menu-item-object-custom a.acc-inactive::after {
+	content: "\f01a";
+	font-family: FontAwesome;
+	float: right;
+}
+#menu-hamburger-menu .menu-item-object-custom a.acc-active::after {
+	content: "\f01b";
+	font-family: FontAwesome;
+	float: right;	
+}
+#menu-hamburger-menu .menu-item-object-custom .sub-menu a::after {
+	content : "";
+} 
 h1 {
 	padding: 5px 0;
 	display: inline-block;
@@ -216,7 +245,7 @@ h1 span {
 }
 .footer-menus {
 	text-align: center;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 .menu-footer-menu-1-container,
 .menu-footer-menu-2-container {
@@ -447,10 +476,8 @@ h1 span {
 /***** FAQ page css ends here *****/
 
 /***** Login page css starts here *****/
-.page-template-login {
-	font-family: Arial, Helvetica, sans-serif;
-}
 .page-template-login div.main-content {
+	font-family: Arial, Helvetica, sans-serif;
 	min-width: 315px;
 	width: 27.45%;
 	border-radius: 8px;
@@ -829,11 +856,14 @@ h1 span {
 
 /***** Media queries starts here *****/
 @media only screen and (min-width: 992px) {
-	.main-footer {
+	/* .main-footer {
 		position: absolute;
 		left: 0;
 		right: 0;
 		bottom: 0;
+	} */
+	.website-main {
+		min-height: 75vh;
 	}
 }
 @media only screen and (min-width: 768px) {
@@ -886,10 +916,17 @@ h1 span {
     transform: scale(.95);
     transition: none;
 	}
+	#menu-hamburger-menu .menu-item a:hover {
+		transition: all 0.35s;
+		text-decoration: underline;
+	}
 }
 @media only screen and (max-width: 992px) {
 	.wrapper {
 		width: 85%;
+	}
+	.hamburger {
+		left: 7.5%;
 	}
 	.quick-link {
 		text-align: center;

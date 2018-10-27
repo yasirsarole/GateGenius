@@ -93,28 +93,79 @@
     });
 
     // Hamburger Js
-    $('.nav-menu .hamburger').on('click', function() {
+    $('.not-home .hamburger').on('click', function() {
       if ($(this).hasClass('active')) {
         $(this).removeClass('active');
         $(this).addClass('inactive');
+        $('.not-home .nav-menu').show();
       } else {
         $(this).removeClass('inactive');
         $(this).addClass('active');
+        $('.not-home .nav-menu').hide();
       }
+    });
+    $('#menu-hamburger-menu .menu-item-object-custom').children('a').each(function() {
+      if ($(this).next('.sub-menu').length) {
+        $(this).addClass('acc-inactive');
+      }
+    });
+    $('#menu-hamburger-menu .menu-item-object-custom').children('a').on('click', function(e) {
+      if ($(this).next('.sub-menu').length) {
+        e.preventDefault();
+      }
+      if ($(this).hasClass('acc-inactive')) {
+        $('#menu-hamburger-menu .menu-item-object-custom .sub-menu').parent().children('a').removeClass('acc-active');
+        $('#menu-hamburger-menu .menu-item-object-custom .sub-menu').parent().children('a').addClass('acc-inactive');
+        $('#menu-hamburger-menu .menu-item-object-custom .sub-menu').parent().children('a').next('.sub-menu').slideUp();
+        $(this).next('.sub-menu').slideDown();
+        $(this).removeClass('acc-inactive');
+        $(this).addClass('acc-active');
+      } else if ($(this).hasClass('acc-active')) {
+        $(this).next('.sub-menu').slideUp();
+        $(this).removeClass('acc-active');
+        $(this).addClass('acc-inactive');
+      }
+    });
+
+    $('#menu-hamburger-menu a').each(function() {
+      $(this).removeClass('active-page')
+      if (window.location.href === $(this).attr('href')) {
+        $(this).addClass('active-page');
+      };
     });
   });
   // Ready function end
 
-  // $(window).on('load resize', function() {
-  //   var mainHeight = $('main').outerHeight();
-  //   var actualHeight = $(window).height() - $('footer').outerHeight() - $('header').outerHeight();
-  //   console.log(mainHeight);
-  //   console.log(actualHeight);
-  //   if (mainHeight < actualHeight) {
-  //     $('main').height(actualHeight)
-  //   } else {
-  //     $('main').height('auto');
-  //   }
-  // });
-  // Load resize end
+  $(window).on('load', function() {
+    // JS for displaying time on exam page
+    var actualTime = $('.actual-left').text();
+    var seconds = 60;
+    var currentLeft = actualTime + ' : ' + seconds;
+    $('.actual-left').text(currentLeft);
+
+    function decreaseTime() {
+      if ( seconds == 00 ) {
+        seconds = 60;
+        actualTime = actualTime - 1;
+
+        if (actualTime < 10) {
+          actualTime = '0' + actualTime;
+        }              
+      }
+      seconds = seconds - 1;
+
+      if (seconds < 10) {
+        seconds = '0' + seconds;
+      }      
+    }
+
+    var interval = setInterval(function() {
+      decreaseTime();
+      $('.actual-left').text(actualTime + ' : ' + seconds);
+      if (actualTime == 00) {
+        clearInterval(interval);
+        $('.actual-left').text('00' + ' : ' + '00');
+      }
+    },1000);
+  });
 })(jQuery);

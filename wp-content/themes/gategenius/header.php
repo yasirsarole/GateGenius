@@ -11,9 +11,9 @@
 
 <body <?php body_class(); ?>>
 	<header class="main-header not-home">
-		<div class="wrapper clearfix">	
+		<div class="wrapper clearfix">
+			<span class="hamburger active"></span>	
       <div class="nav-menu">
-        <span class="hamburger active"></span>
         <div class="top-menus">  
           <?php wp_nav_menu(array( 'theme_location' => 'hamburger-menu' )); ?>
         </div>

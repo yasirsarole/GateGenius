@@ -19,6 +19,14 @@ get_header();
   <div class="scientific-calculator">  
     <iframe src="https://www.tcsion.com/OnlineAssessment/ScientificCalculator/Calculator.html" frameborder="0"></iframe>
   </div>
+  <div class="time-left">
+    <?php
+      $time = 5; 
+      $time = sprintf("%02d", $time)
+    ?>
+    <span class="time">time left : </span>
+    <span class="actual-left"><?php echo $time; ?></span>       
+  </div>
 </main>
 <?php } else {
   $homeUrl = get_home_url().'/login';
