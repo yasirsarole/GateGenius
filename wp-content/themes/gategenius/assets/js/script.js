@@ -214,7 +214,23 @@
       $('.scientific-calculator').show();
     }, function() {
       $('.scientific-calculator').hide();
-    });    
+    });
+    
+    // JS for exam status toggle
+    $('.slide-button').addClass('slide-open');
+    $('.slide-button').on('click', function() {
+      if ($(this).hasClass('slide-open')) {
+        $(this).removeClass('slide-open');
+        $(this).addClass('slide-close');
+        $('.exam-types .question-type').addClass('fullwidth');
+        $('.exam-status').addClass('translate-out');
+      } else if ($(this).hasClass('slide-close')) {
+        $(this).removeClass('slide-close');
+        $(this).addClass('slide-open');
+        $('.exam-types .question-type').removeClass('fullwidth');
+        $('.exam-status').removeClass('translate-out');
+      }
+    });
   });
   // Ready function end
 

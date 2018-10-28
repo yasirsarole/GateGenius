@@ -1,6 +1,6 @@
 <div class="main-section nat-type">
   <div class="questype-marks">
-    <span class="question-type">Question Type : MCQ</span>
+    <span class="question-type-name">Question Type : MCQ</span>
     <span class=negative-marks>Marks for correct answer 1 | Negative Marks 1/3</span>
   </div>
   <div class="question-number">
@@ -37,6 +37,9 @@
 			</div>
 			<span class="clear-all">clear all</span>
 		</div>
+    <figure class="arrow-up">
+      <img src="" alt="Arrow Up">
+    </figure>		
 	</div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="main-section mcq-type">
   <div class="questype-marks">
-    <span class="question-type">Question Type : MCQ</span>
+    <span class="question-type-name">Question Type : MCQ</span>
     <span class=negative-marks>Marks for correct answer 1 | Negative Marks 1/3</span>
   </div>
   <div class="question-number">
@@ -23,5 +23,8 @@
       <input type="checkbox" name="D" id="fourth" value="D">
       <label for="fourth">D</label>                          
     </div>
+    <figure class="arrow-up">
+      <img src="" alt="Arrow Up">
+    </figure>	    
   </div>
 </div>

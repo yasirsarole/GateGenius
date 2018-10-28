@@ -97,15 +97,16 @@ get_header();
 						?>
 					</div>
 					<div class="exam-status">
+						<span class="slide-button"></span>
 						<div class="status-info">
 							<span class="answered">Answered</span>
 							<span class="not-answered">Not Answered</span>
 							<span class="not-visited">Not Visited</span>
 							<span class="mark-review">Marked for Review</span>
-							<span class="answered and marked">Answered & Marked for Review<span>(will be considered for evaluation)</span></span>
+							<span class="answered-and-marked">Answered & Marked for Review (will be considered for evaluation)</span>
 						</div>
 						<span class="subject-title">Dynamic Subject Name</span>
-						<div class="choose-question">
+						<div class="choose-question-container">
 							<span class="choose-question">Choose a Question</span>
 							<ul class="status-images">
 								<?php

@@ -795,6 +795,7 @@ h1 span {
 /***** Test paper css starts here *****/
 .page-template-main-exam {
 	font-family: Arial, Helvetica, sans-serif;
+	overflow-x: hidden;
 }
 .page-template-main-exam .main-footer {
 	display: none;
@@ -1121,6 +1122,50 @@ div.calculator {
 .exam-types:first-of-type {
 	display: block;
 }
+.question-type {
+	display: inline-block;
+	width: calc(78% - 25px);
+	vertical-align: top;
+	padding-left: 20px;	
+	transition: all 0.5s;
+}
+/* .question-type.fullwidth {
+	width: 100%;
+} */
+.exam-status {
+	display: inline-block;
+	width: calc(22% - 5px);
+	border: 2px solid #000;
+	vertical-align: top;
+	position: relative;
+	transition: all 0.5s;
+}
+.exam-status.translate-out {
+	transform: translateX(101%);
+}
+.slide-button::before {
+	font-family: FontAwesome;
+	position: absolute;
+	display: flex;
+	color: #fff;
+	background: #000;
+	height: 45px;
+	vertical-align: middle;
+	align-items: center;
+	width: 15px;
+	border-radius: 2px;
+	left: -21px;
+	padding-left: 4px;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer;
+}
+.slide-button.slide-open::before {
+	content: "\f054";
+}
+.slide-button.slide-close::before {
+	content: "\f053";
+}
 /* .save-next-parent {
 	padding: 10px 0 10px 15px;
 } */
@@ -1162,6 +1207,75 @@ div.calculator {
 	background: #e5fcff;
 	margin-left: -5px;
 	border-bottom: 2px solid #e5fcff;
+}
+.questype-marks .question-type-name {
+	font-size: 14px;
+	color: #e58042;
+	font-weight: 600;
+	display: inline-block;
+	vertical-align: middle;
+}
+.questype-marks .negative-marks {
+	font-size: 12px;
+	display: inline-block;
+	vertical-align: middle;
+	/* float: right;	 */
+}
+.status-info {
+	padding: 10px;
+}
+.status-info span {
+	display: inline-block;
+	vertical-align: top;
+	width: calc(50% - 5px);
+	font-size: 13px;
+	line-height: 1.2;	
+}
+.status-info span:last-of-type {
+	width: 100%;
+}
+.status-info span::before {
+	content: "0";
+	width: 30px;
+	height: 30px;
+	padding-top: 15px;
+	margin-right: 5px;
+	display: inline-block;
+	text-align: center;	
+}
+.status-info .answered::before {
+	background: url(assets/images/questions-sprite.png) no-repeat 100%/100%;
+}
+.status-info .not-answered::before {
+	background: url(assets/images/questions-sprite2.png) no-repeat 100%/100%;
+}
+.status-info .not-visited::before  {
+	background: url(assets/images/questions-sprite3.png) no-repeat 100%/100%;	
+}
+.status-info .mark-review::before {
+	background: url(assets/images/questions-sprite4.png) no-repeat 100%/100%;
+}
+.status-info .answered-and-marked::before  {
+	background: url(assets/images/questions-sprite6.png) no-repeat 100%/100%;
+}
+.subject-title {
+	display: block;
+	padding: 10px;
+	background: #5c86c9;
+	color: #fff;
+	font-size: 16px;
+	line-height: 1.2;
+	font-weight: 600;	
+}
+.choose-question-container {
+	background: #e5fcff;
+	padding: 10px;
+}
+.choose-question {
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.2;
+	display: block;	
 }
 /***** Test paper css ends here *****/
 
