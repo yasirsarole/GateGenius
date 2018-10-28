@@ -133,6 +133,88 @@
         $(this).addClass('active-page');
       };
     });
+
+    // Js for exam page Keyboard
+    document.getElementById("myinputbox").focus();
+    var answerVal = $('.input-answer').val();
+    $('.numbers li').on('click', function() {
+      answerVal = answerVal + $(this).text();
+      $('.input-answer').val(answerVal);
+      document.getElementById("myinputbox").focus();
+    });
+
+    $('.backspace').on('click', function() {
+      answerVal = answerVal.substr(0, answerVal.length - 1);
+      $('.input-answer').val(answerVal);
+      document.getElementById("myinputbox").focus();
+    });
+
+    $('.clear-all').on('click', function() {
+      answerVal = '';
+      $('.input-answer').val(answerVal);
+      document.getElementById("myinputbox").focus();
+    });
+
+    $('.back-arrow').on('click', function() {
+      var input = document.getElementById('myinputbox');
+      document.getElementById("myinputbox").focus();
+      setCaretPosition(input, doGetCaretPosition(input) - 1);       
+    });
+    
+    $('.forward-arrow').on('click', function() {
+      var input = document.getElementById('myinputbox');
+      document.getElementById("myinputbox").focus();
+      setCaretPosition(input, doGetCaretPosition(input) + 1);           
+    });     
+
+    function setCaretPosition(ctrl, pos) {
+      // Modern browsers
+      if (ctrl.setSelectionRange) {
+        ctrl.focus();
+        ctrl.setSelectionRange(pos, pos);
+      
+      // IE8 and below
+      } else if (ctrl.createTextRange) {
+        var range = ctrl.createTextRange();
+        range.collapse(true);
+        range.moveEnd('character', pos);
+        range.moveStart('character', pos);
+        range.select();
+      }
+    }
+
+    function doGetCaretPosition(oField) {
+      // Initialize
+      var iCaretPos = 0;
+      // IE Support
+      if (document.selection) {
+        // Set focus on the element
+        oField.focus();
+        // To get cursor position, get empty selection range
+        var oSel = document.selection.createRange();
+        // Move selection start to 0 position
+        oSel.moveStart('character', -oField.value.length);
+        // The caret position is selection length
+        iCaretPos = oSel.text.length;
+      }
+      // Firefox support
+      else if (oField.selectionStart || oField.selectionStart == '0')
+        iCaretPos = oField.selectionStart;
+      // Return results
+      return iCaretPos;
+    }
+    
+    // Js for checbox answer on exam page
+    $('.ans-options input:checkbox').on('click', function() {
+      $('.ans-options input:checkbox').not(this).prop('checked', false);
+    });
+    
+    // JS for calculator toggle
+    $('.calculator-link').toggle(function() {
+      $('.scientific-calculator').show();
+    }, function() {
+      $('.scientific-calculator').hide();
+    });    
   });
   // Ready function end
 
@@ -167,5 +249,13 @@
         $('.actual-left').text('00' + ' : ' + '00');
       }
     },1000);
+  });
+
+  $(window).on('load resize', function() {
+    if (window.innerWidth < 768) {
+      $('#myinputbox').attr('readonly', 'true');
+    } else {
+      $('#myinputbox').removeAttr('readonly');
+    }    
   });
 })(jQuery);

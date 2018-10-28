@@ -1,0 +1,1 @@
+{"result":{"text":"root index left parenthesis x minus y right parenthesis of c h j a k a end root"},"status":"ok"}
