@@ -46,21 +46,21 @@
         $(this).addClass('hasChild');
       }
     });
-    $('.hasChild').addClass('close');
-    $('.hasChild').on('click', function(e) {
+    $('.footer-menus .menu-item-has-children').addClass('close');
+    $('.footer-menus .menu-item-has-children').children('a').on('click', function(e) {
       e.preventDefault();
-      if ($(this).hasClass('close')) {
+      if ($(this).parent().hasClass('close')) {
         // $('.hasChild').children('.sub-menu').slideUp(300);
         // $('.hasChild').removeClass('close');
         // $('.hasChild').removeClass('open');
         // $('.hasChild').addClass('close');
-        $(this).children('.sub-menu').slideDown(300);
-        $(this).removeClass('close');
-        $(this).addClass('open');
-      } else if ($(this).hasClass('open')) {
-        $(this).children('.sub-menu').slideUp(300);
-        $(this).removeClass('open');
-        $(this).addClass('close');
+        $(this).parent().children('.sub-menu').slideDown(300);
+        $(this).parent().removeClass('close');
+        $(this).parent().addClass('open');
+      } else if ($(this).parent().hasClass('open')) {
+        $(this).parent().children('.sub-menu').slideUp(300);
+        $(this).parent().removeClass('open');
+        $(this).parent().addClass('close');
       }
     });
 
@@ -135,7 +135,9 @@
     });
 
     // Js for exam page Keyboard
-    document.getElementById("myinputbox").focus();
+    if ($('body').hasClass('page-template-main-exam')) {
+      document.getElementById("myinputbox").focus();
+    }
     var answerVal = $('.input-answer').val();
     $('.numbers li').on('click', function() {
       answerVal = answerVal + $(this).text();

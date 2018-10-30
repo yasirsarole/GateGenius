@@ -68,8 +68,8 @@ get_header();
   </div>
   <div class="nextbutton previousbutton">
     <div class="wrapper clearfix">
-      <input type="checkbox" name="declaration">
-      <p class="declaration"><span>Declaration by the Candidate:</span> I have read and understood all the instructions. All the computer hardware allotted to me are in proper working condition. I declare that I am not carrying any prohibited gadgets like mobile phone, bluetooth devices, wrist watches, etc. and any prohibited material with me into the examination hall. I agree that if found to be non-complaint with the above declaration, I shall be liable to be debarred from this examination and / or to disciplinary action, which may include ban from future examinations / tests.</p>
+      <input type="checkbox" name="declaration" id="declare">
+      <label for="declare" class="declaration"><span>Declaration by the Candidate:</span> I have read and understood all the instructions. All the computer hardware allotted to me are in proper working condition. I declare that I am not carrying any prohibited gadgets like mobile phone, bluetooth devices, wrist watches, etc. and any prohibited material with me into the examination hall. I agree that if found to be non-complaint with the above declaration, I shall be liable to be debarred from this examination and / or to disciplinary action, which may include ban from future examinations / tests.</label>
       <a href="<?php echo get_permalink(get_field('redirect_link')); ?>" title="Next" class="desktop-previous">< previous</a>
       <a href="<?php echo get_permalink(get_field('test_link')); ?>" class="ready-to-begin">I am ready to begin</a>
       <a href="<?php echo get_permalink(get_field('redirect_link')); ?>" title="Next" class="mobile-previous">< previous</a>
