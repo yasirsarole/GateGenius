@@ -99,6 +99,12 @@ h2 {
 	padding-bottom: 5px;
 	display: inline-block;	
 }
+h3 {
+	font-size: 20px;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 15px;
+}
 /*****  Global code ends here *****/
 
 /***** Header css starts here *****/
@@ -1279,6 +1285,17 @@ div.calculator {
 }
 /***** Test paper css ends here *****/
 
+/***** CSR css starts here *****/
+.csr-main {
+	padding: 50px 0;
+}
+.csr-main p {
+	font-size: 16px;
+	line-height: 1.3;
+	margin-bottom: 20px;	
+}
+/***** CSR css ends here *****/
+
 /***** Media queries starts here *****/
 @media only screen and (min-width: 992px) {
 	/* .main-footer {
@@ -1494,6 +1511,12 @@ div.calculator {
 	}
 	h2 {
 		font-size: 25px;
+	}
+	h3 {
+		font-size: 18px;
+	}
+	.csr-main p {
+		font-size: 14px;
 	}
 	.question span {
 		font-size: 14px;
