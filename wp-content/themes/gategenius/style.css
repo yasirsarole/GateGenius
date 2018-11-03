@@ -1356,6 +1356,81 @@ div.calculator {
 }
 /***** Download Links css ends here *****/
 
+/***** Contact Us css starts here *****/
+.contact-main {
+	padding: 50px 0;
+}
+.branches {
+	text-align: center;
+}
+.branches li {
+	width: calc(45% - 25px);
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 10% 30px 0;
+	background: #dbdbdb;
+	padding: 10px;
+	border-radius: 10px;
+}
+.branches li:nth-of-type(2n) {
+	margin-right: 0;
+}
+.branches li p {
+	font-size: 18px;
+	line-height: 1.4;	
+}
+.branch-image {
+	width: 45%;
+	height: auto;
+	margin: 0 auto 15px;
+}
+.branch-image img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+.branch-form-container {
+	display: flex;
+}
+.branch-info {
+	flex: 3;
+}
+.contact-form {
+	flex: 1;
+	margin-left: 4%;	
+}
+.contact-form form input,
+.contact-form form textarea {
+	margin-bottom: 10px;
+	display: block;
+	background-color: transparent;
+	color: rgba(0, 0, 0, 0.87);
+	border: none;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.26);
+	outline: none;
+	width: 100%;
+	font-size: 14px;
+	padding: 0;
+	box-shadow: none;
+	border-radius: 0px;
+	background-image: none;
+}
+.contact-form form #submit {
+	width: calc(100% - 40px);
+	display: inline-block;
+	background-color: #337ab7;
+	padding: 10px;
+	color: #fff;
+	cursor: pointer;
+}
+span.wpcf7-not-valid-tip {
+	font-size: 12px;
+}
+div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
+	display: none !important;
+}
+/***** Contact Us css ends here *****/
+
 /***** Media queries starts here *****/
 @media only screen and (min-width: 993px) {
 	/* .main-footer {
@@ -1580,6 +1655,9 @@ div.calculator {
 	.download-main .subject-info:nth-of-type(2n) {
 		margin-right: 0;
 	}		
+	.branch-form-container {
+		display: block;
+	}
 }
 @media only screen and (max-width: 767px) {
 	h1 a {

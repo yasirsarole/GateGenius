@@ -233,6 +233,11 @@
         $('.exam-status').removeClass('translate-out');
       }
     });
+    
+    // Contact form submit js
+    $('.contact-form form').on('submit', function() {
+      $('.wpcf7-response-output').css('display','none');
+    });
   });
   // Ready function end
 
