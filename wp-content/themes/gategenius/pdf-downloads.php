@@ -39,7 +39,45 @@ get_header();
 				?>				
 			</div>
 			<?php	elseif( get_row_layout() == 'notes' ): ?>
+			<div class="paper-solution">
+				<h3 class="semester"><?php echo get_sub_field('semester'); ?></h3>
+				<?php
+				if( have_rows('sem_wise_notes') ):
+					while ( have_rows('sem_wise_notes') ) : the_row();
+				?>
+				<div class="subject-info">
+					<span class="subject-name"><?php echo get_sub_field('subject_name') ?></span>
+					<?php if (get_sub_field('upload_pdf')) { ?>
+					<a href="<?php echo get_sub_field('upload_pdf'); ?>" title="Notes" class="question-paper notes" target="_blank">
+					notes
+					</a>
+					<?php } ?>				
+				</div>
+				<?php	
+					endwhile;
+				endif;
+				?>				
+			</div>			
 			<?php elseif( get_row_layout() == 'youtube'): ?>
+			<div class="paper-solution">
+				<h3 class="semester"><?php echo get_sub_field('semester'); ?></h3>
+				<?php
+				if( have_rows('youtube_links') ):
+					while ( have_rows('youtube_links') ) : the_row();
+				?>
+				<div class="subject-info">
+					<span class="subject-name"><?php echo get_sub_field('subject_name') ?></span>
+					<?php if (get_sub_field('link')) { ?>
+					<a href="<?php echo get_sub_field('link'); ?>" title="Youtube Link" class="question-paper notes" target="_blank">
+					youtube link
+					</a>
+					<?php } ?>				
+				</div>
+				<?php	
+					endwhile;
+				endif;
+				?>				
+			</div>				
 			<?php
 							endif;
 					endwhile;

@@ -1668,5 +1668,8 @@ div.calculator {
 	.download-main .subject-info .question-paper {
 		margin-right: 25%;
 	}
+	.download-main .subject-info .question-paper.notes {
+		margin-right: 0;
+	}
 }
 /***** Media queries ends here *****/
