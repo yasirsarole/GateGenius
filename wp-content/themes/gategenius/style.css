@@ -1305,8 +1305,59 @@ div.calculator {
 }
 /***** CSR css ends here *****/
 
+/***** About Us css starts here *****/
+.about-container {
+	padding: 50px 0;
+}
+.about-banner {
+	width: 100%;
+	height: auto;
+}
+.about-banner img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+.about-main {
+	margin-top: 30px;
+}
+.about-main p {
+	font-size: 16px;
+	line-height: 1.3;
+	margin-bottom: 20px;
+}
+/***** About Us css ends here *****/
+
+/***** Download Links css starts here *****/
+.download-main {
+	padding: 50px 0;
+}
+.download-main .subject-info::before,
+.download-main .subject-info::after {
+	content: unset;
+}
+.download-main .subject-info .question-paper::before {
+	content: "";
+}
+.download-main .subject-info {
+	width: calc(32% - 5px);
+	text-align: center;
+	padding: 10px;
+	margin: 0 2% 15px 0;
+	vertical-align: top;
+	box-sizing: border-box;		
+}
+.download-main .subject-info .subject-name {
+	font-size: 14px;
+	margin-right: 12px;
+}
+.paper-solution {
+	margin-bottom: 20px;
+}
+/***** Download Links css ends here *****/
+
 /***** Media queries starts here *****/
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 993px) {
 	/* .main-footer {
 		position: absolute;
 		left: 0;
@@ -1316,6 +1367,9 @@ div.calculator {
 	.website-main {
 		min-height: 75vh;
 	}
+	.download-main .subject-info:nth-of-type(3n) {
+		margin-right: 0;
+	}	
 }
 @media only screen and (min-width: 768px) {
 	.social-icons a:hover {
@@ -1390,6 +1444,10 @@ div.calculator {
 	.admission-main a:hover {
 		text-decoration: underline;
 	}
+	.paper-solution .question-paper:hover,
+	.paper-solution .solution-paper:hover {
+		text-decoration: none;
+	}	
 }
 @media only screen and (max-width: 992px) {
 	.wrapper {
@@ -1516,6 +1574,12 @@ div.calculator {
 	.page-template-home .not-home {
 		display: block;
 	}
+	.download-main .subject-info {
+		width: calc(48% - 5px);		
+	}	
+	.download-main .subject-info:nth-of-type(2n) {
+		margin-right: 0;
+	}		
 }
 @media only screen and (max-width: 767px) {
 	h1 a {
@@ -1523,12 +1587,15 @@ div.calculator {
 	}
 	h2 {
 		font-size: 25px;
+		line-height: 1.2;
 	}
 	h3 {
 		font-size: 18px;
+		line-height: 1.4;
 	}
 	.csr-main p,
-	.admission-main p {
+	.admission-main p,
+	.about-main p {
 		font-size: 14px;
 	}
 	.question span {
@@ -1564,6 +1631,10 @@ div.calculator {
 	.results.slick-slider {
 		min-width: 200px;
 	}
+	.download-main .subject-info {
+    width: 100%;
+    margin-right: 0;		
+	}	
 }
 @media only screen and (max-width: 480px) {
 	.page-template-login div.main-content {
@@ -1586,6 +1657,16 @@ div.calculator {
 	.not-home .main-logo,
 	.not-home .social-icons {
 		display: block;
+	}
+}
+@media only screen and (max-width: 375px) {
+	.download-main .subject-info .subject-name {
+		font-size: 12px;
+		display: block;
+    margin-bottom: 10px;
+	}
+	.download-main .subject-info .question-paper {
+		margin-right: 25%;
 	}
 }
 /***** Media queries ends here *****/
