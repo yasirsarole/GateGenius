@@ -238,6 +238,24 @@
     $('.contact-form form').on('submit', function() {
       $('.wpcf7-response-output').css('display','none');
     });
+
+    // Js for exam page
+    if ($('.qna-section .wysiwyg-content p').children('img').length) {
+      $('.qna-section .wysiwyg-content p').children('img').parent().addClass('question-image');
+    }
+
+    $('.arrow-down').on('click', function() {
+      var scrollHeight = $('.qna-section').innerHeight();
+      $('.qna-section').animate({
+        scrollTop: scrollHeight
+      }, 1000);
+    });
+
+    $('.arrow-up').on('click', function() {
+      $('.qna-section').animate({
+        scrollTop: 0
+      }, 1000);
+    });    
   });
   // Ready function end
 
@@ -280,5 +298,27 @@
     } else {
       $('#myinputbox').removeAttr('readonly');
     }    
+
+    // Js for contact page branches equal height
+    if (window.innerWidth > 768) {
+      $('.branches li').each(function() {
+        var currentHeight = 0;
+        $(this).height('auto');
+        if ($(this).height() > currentHeight) {
+          currentHeight = $(this).height();
+        }
+        $('.branches li').height(currentHeight);
+      });
+    } else {
+      $('.branches li').height('auto');
+    }
+
+    if (window.innerWidth > 992) {
+      $('.exam-status').height($('.question-type').height() - 3);
+      var extraHeight = $('.exam-status .status-info').innerHeight() + $('.exam-status .subject-title').innerHeight();
+      $('.choose-question-container').innerHeight($('.exam-status').height() - extraHeight);
+    } else {
+      $('.exam-status').height('auto');
+    }      
   });
 })(jQuery);

@@ -1,17 +1,17 @@
 <div class="main-section nat-type">
   <div class="questype-marks">
     <span class="question-type-name">Question Type : MCQ</span>
-    <span class=negative-marks>Marks for correct answer 1 | Negative Marks 1/3</span>
+    <span class=negative-marks>Marks for correct answer <span class="positive">1</span> | Negative Marks <span class="negative">1/3</span></span>
   </div>
-  <div class="question-number">
+  <div class="question-number clearfix">
     <span class="question-no">Question No. 1</span>
     <figure class="arrow-down">
-      <img src="" alt="Arrow Down">
+      <img src="../wp-content/themes/gategenius/assets/images/arrow-down" alt="Arrow Down">
     </figure>
   </div>
-  <div class="qna-section">
+  <div class="qna-section clearfix">
     <div class="wysiwyg-content">
-    <?php echo wpautop(get_sub_field('question_input_mcq')); ?>
+    <?php echo wpautop(get_sub_field('question_input_nat')); ?>
     </div>
     <div class="answer-field">
 		<input type="text" class="input-answer" id="myinputbox">
@@ -36,10 +36,10 @@
 				<span class="forward-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
 			</div>
 			<span class="clear-all">clear all</span>
-		</div>
-    <figure class="arrow-up">
-      <img src="" alt="Arrow Up">
-    </figure>		
+		</div>		
 	</div>
+	<figure class="arrow-up">
+      <img src="../wp-content/themes/gategenius/assets/images/arrow-up" alt="Arrow Up">
+	</figure>
   </div>
 </div>

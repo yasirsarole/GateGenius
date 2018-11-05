@@ -1,0 +1,1 @@
+{"result":{"text":"fraction numerator square root of 22 straight pi end root over denominator 6 end fraction"},"status":"ok"}

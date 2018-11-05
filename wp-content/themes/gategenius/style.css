@@ -922,8 +922,8 @@ h1 span {
 	margin-right: 0;
 }
 .answer-field {
-	display: inline-block;
-	text-align: center;
+	display: block;
+	text-align: left;
 }
 .input-answer {
 	display: block;
@@ -1122,29 +1122,37 @@ div.calculator {
 .qna-section-main {
 	border-top: 1px solid #afafaf;
 }
+.wysiwyg-content {
+	margin-right: 1%;
+}
 .exam-types {
 	display: none;
+	position: relative;
 }
 .exam-types:first-of-type {
 	display: block;
 }
 .question-type {
 	display: inline-block;
-	width: calc(78% - 25px);
+	width: calc(78% - 5px);
 	vertical-align: top;
-	padding-left: 20px;	
 	transition: all 0.5s;
 }
-/* .question-type.fullwidth {
-	width: 100%;
-} */
+.question-type .mcq-type {
+	display: none;
+}
+.question-type.fullwidth {
+	width: calc(100% - 5px);;
+}
 .exam-status {
 	display: inline-block;
 	width: calc(22% - 5px);
 	border: 2px solid #000;
 	vertical-align: top;
-	position: relative;
 	transition: all 0.5s;
+	position: absolute;
+	right: 0;
+	top: 0;
 }
 .exam-status.translate-out {
 	transform: translateX(101%);
@@ -1214,6 +1222,21 @@ div.calculator {
 	margin-left: -5px;
 	border-bottom: 2px solid #e5fcff;
 }
+.questype-marks {
+	padding: 10px 0 10px 10px;
+	/* position: relative; */
+	border-bottom: 1px solid #afafaf;
+}
+.question-number {
+	border-bottom: 1px solid #afafaf;
+}
+.question-no {
+	font-size: 14px;
+	padding: 5px;
+	color: #000;
+	font-weight: 600;
+	display: inline-block;
+}
 .questype-marks .question-type-name {
 	font-size: 14px;
 	color: #e58042;
@@ -1225,7 +1248,15 @@ div.calculator {
 	font-size: 12px;
 	display: inline-block;
 	vertical-align: middle;
-	/* float: right;	 */
+	float: right;	
+}
+.questype-marks .negative-marks .positive {
+	color: green;
+	font-weight: 600;
+}
+.questype-marks .negative-marks .negative {
+	color: red;
+	font-weight: 600;
 }
 .status-info {
 	padding: 10px;
@@ -1282,6 +1313,72 @@ div.calculator {
 	font-weight: 600;
 	line-height: 1.2;
 	display: block;	
+}
+/* .status-images {
+	height: 200px;
+	overflow-y: auto;
+} */
+.arrow-down,
+.arrow-up {
+	display: inline-block;
+	width: 30px;
+	height: auto;
+	vertical-align: middle;
+	float: right;
+	cursor: pointer;
+}
+.arrow-down img,
+.arrow-up img {
+	display: block;
+	width: 100%;
+}
+.qna-section {
+	height: 410px;
+	padding: 10px 0 5px 10px;
+}
+.ans-options {
+	margin-top: 15px;
+}
+.input-container {
+	margin-bottom: 15px;
+}
+.input-container:last-of-type {
+	margin-bottom: 0;
+}
+.qna-section .wysiwyg-content p {
+	margin-bottom: 15px;
+	font-size: 16px;
+	line-height: 1.4;
+}
+.qna-section .wysiwyg-content p.question-image {
+	text-align: center;
+}
+.qna-section .wysiwyg-content ul {
+	padding: 10px 0;
+}
+.qna-section .wysiwyg-content ul li {
+	font-size: 25px;
+	display: inline-block;
+	width: calc(50% - 5px);
+	vertical-align: top;
+	margin-bottom: 15px;	
+}
+.qna-section .wysiwyg-content ul li::before {
+	font-size: 18px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.qna-section .wysiwyg-content ul li:first-of-type::before {
+	content: "(A)";
+}
+.qna-section .wysiwyg-content ul li:nth-of-type(2)::before {
+	content: "(B)";
+}
+.qna-section .wysiwyg-content ul li:nth-of-type(3)::before {
+	content: "(C)";
+}
+.qna-section .wysiwyg-content ul li:last-of-type::before {
+	content: "(D)";
 }
 /***** Test paper css ends here *****/
 
@@ -1364,6 +1461,7 @@ div.calculator {
 	text-align: center;
 }
 .branches li {
+	box-sizing: border-box;
 	width: calc(45% - 25px);
 	display: inline-block;
 	vertical-align: top;
@@ -1523,6 +1621,10 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
 	.paper-solution .solution-paper:hover {
 		text-decoration: none;
 	}	
+	.wysiwyg-content:hover {
+		cursor: pointer;
+		box-shadow: 0px 2px 6px 5px #afafaf;
+	}
 }
 @media only screen and (max-width: 992px) {
 	.wrapper {
@@ -1713,6 +1815,10 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
     width: 100%;
     margin-right: 0;		
 	}	
+	.branches li {
+		width: 100%;
+    margin-right: 0;
+	}
 }
 @media only screen and (max-width: 480px) {
 	.page-template-login div.main-content {
@@ -1735,6 +1841,9 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
 	.not-home .main-logo,
 	.not-home .social-icons {
 		display: block;
+	}
+	.branches li p {
+		font-size: 16px;
 	}
 }
 @media only screen and (max-width: 375px) {
