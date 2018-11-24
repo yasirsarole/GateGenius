@@ -97,11 +97,11 @@
       if ($(this).hasClass('active')) {
         $(this).removeClass('active');
         $(this).addClass('inactive');
-        $('.not-home .nav-menu').show();
+        $('.not-home .nav-menu').slideDown();
       } else {
         $(this).removeClass('inactive');
         $(this).addClass('active');
-        $('.not-home .nav-menu').hide();
+        $('.not-home .nav-menu').slideUp();
       }
     });
     $('#menu-hamburger-menu .menu-item-object-custom').children('a').each(function() {

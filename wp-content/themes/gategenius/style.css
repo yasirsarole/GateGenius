@@ -136,7 +136,9 @@ header {
 	text-align: left;
 	position: absolute;
 	top: 100%;
-	background: #85d2fc;
+	right: 0;
+	left: 0;
+	background-image: linear-gradient(to bottom, #0b1f31 , #253a51);
 	z-index: 5;
 	padding: 10px;
 	border-radius: 5px;
@@ -166,12 +168,12 @@ header {
 }
 #menu-hamburger-menu .menu-item a {
 	text-decoration: none;
-	padding: 5px;
-	display: block;
+	padding: 10px;
+	display: inline-block;
 	font-size: 16px;
 	line-height: 1.2;
 	font-weight: 600;
-	color: #000;
+	color: #b9bec8;
 }
 #menu-hamburger-menu .sub-menu {
 	padding-left: 10px;
@@ -184,11 +186,13 @@ header {
 	content: "\f01a";
 	font-family: FontAwesome;
 	float: right;
+	margin-left: 10px;
 }
 #menu-hamburger-menu .menu-item-object-custom a.acc-active::after {
 	content: "\f01b";
 	font-family: FontAwesome;
 	float: right;	
+	margin-left: 10px;
 }
 #menu-hamburger-menu .menu-item-object-custom .sub-menu a::after {
 	content : "";
@@ -1676,6 +1680,9 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
 	.wysiwyg-content:hover {
 		cursor: pointer;
 		box-shadow: 0px 2px 6px 5px #afafaf;
+	}
+	span.year:hover {
+		text-decoration: underline;
 	}
 }
 @media only screen and (max-width: 992px) {
