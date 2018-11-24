@@ -255,6 +255,28 @@
       $('.qna-section').animate({
         scrollTop: 0
       }, 1000);
+    });
+    
+    // Notes and Question paper and solution accordion
+    $('.paper-solution-container').first().show();
+    $('span.year').addClass('close');
+    $('span.year').first().addClass('open');
+    $('span.year').first().removeClass('close');
+    $('span.year').on('click', function(e) {
+      e.preventDefault();
+      if ($(this).hasClass('close')) {
+        $('.paper-solution-container').slideUp(500);
+        $('span.year').removeClass('close');
+        $('span.year').removeClass('open');
+        $('span.year').addClass('close');
+        $(this).next('.paper-solution-container').slideDown(500);
+        $(this).removeClass('close');
+        $(this).addClass('open');
+      } else if ($(this).hasClass('open')) {
+        $(this).next('.paper-solution-container').slideUp(500);
+        $(this).removeClass('open');
+        $(this).addClass('close');
+      }
     });    
   });
   // Ready function end

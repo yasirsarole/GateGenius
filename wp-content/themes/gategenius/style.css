@@ -1490,8 +1490,18 @@ div.calculator {
 	font-size: 14px;
 	margin-right: 12px;
 }
+.paper-solution-container {
+	display: none;
+}
 .paper-solution {
 	margin-bottom: 20px;
+}
+span.year {
+	display: block;
+	font-size: 25px;
+	font-weight: 900;
+	margin-bottom: 20px;
+	cursor: pointer;	
 }
 /***** Download Links css ends here *****/
 
