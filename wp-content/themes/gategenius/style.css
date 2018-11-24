@@ -76,12 +76,16 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover; */
-	font-family: 'Raleway', sans-serif;
+	/* font-family: 'Raleway', sans-serif; */
+	font-family: 'Open Sans', sans-serif;
 }
 .wrapper {
 	max-width: 1440px;
 	width: 95%;
 	margin: 0 auto;  
+}
+.website-main {
+	min-height: 75vh;
 }
 .clearfix {
 	overflow: auto;
@@ -104,6 +108,13 @@ h3 {
 	line-height: 1.2;
 	font-weight: 600;
 	margin-bottom: 15px;
+}
+ul {
+	list-style: disc;
+}
+ul li {
+	font-size: 16px;
+	line-height: 1.3;
 }
 /*****  Global code ends here *****/
 
@@ -148,6 +159,10 @@ header {
 }
 .hamburger.inactive::after {
 	content: "\f00d";
+}
+#menu-hamburger-menu,
+#menu-hamburger-menu .sub-menu {
+	list-style: none;
 }
 #menu-hamburger-menu .menu-item a {
 	text-decoration: none;
@@ -272,6 +287,7 @@ h1 span {
 	margin-bottom: 5px;
 	display: inline-block;
 	width: calc(50% - 5px);
+	font-size: 12px;
 }
 #menu-footer-menu-1 .menu-item a,
 #menu-footer-menu-2 .menu-item a{
@@ -478,7 +494,7 @@ h1 span {
 	color: #707070;
 	margin: 15px 0 25px;
 	font-size: 16px;	
-	line-height: 1.2;
+	line-height: 1.4 !important;
 }
 /***** FAQ page css ends here *****/
 
@@ -796,7 +812,32 @@ h1 span {
 	text-transform: unset;
 	cursor: not-allowed;
 }
-/***** General Instructions css ends here ****/
+/***** General Instructions css ends here *****/
+
+/***** Redirect page styling starts here *****/
+.redirect-links {
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);	
+}
+.redirect-links a {
+	text-decoration: none;
+	padding: 15px;
+	font-size: 18px;
+	background: #0067B8;
+	color: #fff;
+	border-radius: 5px;
+	margin-right: 5%;	
+	display: inline-block;
+	transition: all 0.35s linear;
+}
+.redirect-links a:last-of-type {
+	margin-right: 0;
+}
+/***** Redirect page styling ends here *****/
 
 /***** Test paper css starts here *****/
 .page-template-main-exam {
@@ -861,6 +902,7 @@ h1 span {
 	position: absolute;
 	width: 471px;
 	right: 0;
+	z-index: 5;
 }
 .scientific-calculator iframe {
 	display: block;
@@ -1537,11 +1579,11 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
 		right: 0;
 		bottom: 0;
 	} */
-	.website-main {
-		min-height: 75vh;
-	}
 	.download-main .subject-info:nth-of-type(3n) {
 		margin-right: 0;
+	}	
+	.redirect-links a:hover {
+		transform: rotate(-5deg);
 	}	
 }
 @media only screen and (min-width: 768px) {
@@ -1760,6 +1802,18 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
 	.branch-form-container {
 		display: block;
 	}
+	.redirect-links {
+    display: flex;
+    flex-direction: column;		
+	}
+	.redirect-links a {
+		margin: 0 auto;
+		margin-bottom: 30px;
+	}	
+	.redirect-links a:last-of-type {
+		margin-right: auto;
+		margin-bottom: 0;
+	}
 }
 @media only screen and (max-width: 767px) {
 	h1 a {
@@ -1773,6 +1827,9 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
 		font-size: 18px;
 		line-height: 1.4;
 	}
+	ul li {
+		font-size: 14px;
+	}	
 	.csr-main p,
 	.admission-main p,
 	.about-main p {

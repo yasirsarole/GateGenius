@@ -6,7 +6,7 @@
   <div class="question-number clearfix">
     <span class="question-no">Question No. 1</span>
     <figure class="arrow-down">
-      <img src="../wp-content/themes/gategenius/assets/images/arrow-down" alt="Arrow Down">
+      <img src="../wp-content/themes/gategenius/assets/images/arrow-down.png" alt="Arrow Down">
     </figure>
   </div>
   <div class="qna-section clearfix">
@@ -32,7 +32,7 @@
       </div>
     </div>
     <figure class="arrow-up">
-      <img src="../wp-content/themes/gategenius/assets/images/arrow-up" alt="Arrow Up">
+      <img src="../wp-content/themes/gategenius/assets/images/arrow-up.png" alt="Arrow Up">
     </figure>	    
   </div>
 </div>
