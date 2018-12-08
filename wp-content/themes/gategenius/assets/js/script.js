@@ -277,13 +277,38 @@
         $(this).removeClass('open');
         $(this).addClass('close');
       }
-    });    
+    });  
+    
+    // Mobile status slider down
+    $('.status-info-mobile').addClass('close');
+    $('.status-info-mobile').on('click', function() {
+      if ($(this).hasClass('close')) {
+        $(this).removeClass('close');
+        $(this).addClass('open');
+        $(this).next().next('.exam-status').show();        
+      } else if ($(this).hasClass('open')) {
+        $(this).removeClass('open');
+        $(this).addClass('close');
+        $(this).next().next('.exam-status').hide();        
+      }
+    });
+
+    // Js for exam page
+    $('.papers .paper-name').first().children('span').addClass('active-section');
+    $('.papers .paper-name').children('span').on('click', function() {
+      $('.papers .paper-name').children('span').removeClass('active-section');
+      $(this).addClass('active-section');
+    });
   });
   // Ready function end
 
   $(window).on('load', function() {
     // JS for displaying time on exam page
-    var actualTime = $('.actual-left').text();
+    var actualTime = '';
+    $('.question-type .main-section').each(function(i) {
+      actualTime = i;
+    });
+    actualTime = Math.ceil(1.8*(actualTime+1));
     var seconds = 60;
     var currentLeft = actualTime + ' : ' + seconds;
     $('.actual-left').text(currentLeft);

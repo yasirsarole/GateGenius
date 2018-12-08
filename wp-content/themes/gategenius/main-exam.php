@@ -38,17 +38,19 @@ get_header();
 							$time = sprintf("%02d", $time)
 						?>
 						<span class="time">time left : </span>
-						<span class="actual-left"><?php echo $time; ?></span>       
+						<span class="actual-left"></span>       
 					</div>
 				</div>
 				<div class="paper-types">
 					<ul class="papers">
+						<?php $count = 0; ?>
 						<?php
 							if( have_rows('paper_types') ):
 								while ( have_rows('paper_types') ) : the_row();
 								$paperName = get_sub_field('paper_name');
+								$count++;
 						?>
-						<li class="paper-name"><span><?php echo $paperName; ?></span></li>	
+						<li class="paper-name" data-id="<?php echo 'type'.$count ?>"><span><?php echo $paperName; ?></span></li>	
 						<?php
 								endwhile;
 							endif;
@@ -77,13 +79,16 @@ get_header();
 		</div>
 	</div>
 	<div class="qna-section-main">
+		<?php $counter = 0; ?>
 		<div class="wrapper">
 			<?php
 				if( have_rows('paper_types') ):
 					while ( have_rows('paper_types') ) : the_row();
+					$counter++;
 			?>
-				<div class="exam-types">
-					<div class="question-type">					
+				<div class="exam-types" data-target="<?php ?>">
+					<div class="status-info-mobile"></div>
+					<div class="question-type" data-target="<?php echo 'type'.$counter; ?>">					
 						<?php
 						if( have_rows('question_type') ):
 							while ( have_rows('question_type') ) : the_row();

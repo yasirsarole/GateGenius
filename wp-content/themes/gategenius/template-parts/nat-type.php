@@ -1,7 +1,14 @@
 <div class="main-section nat-type">
   <div class="questype-marks">
-    <span class="question-type-name">Question Type : MCQ</span>
-    <span class=negative-marks>Marks for correct answer <span class="positive">1</span> | Negative Marks <span class="negative">1/3</span></span>
+		<span class="question-type-name">Question Type : MCQ</span>
+		<?php
+			if (get_sub_field('one') === true) {
+				$marks = 1;
+			} elseif (get_sub_field('two') === true) {
+				$marks = 2;
+			}
+		?>
+    <span class=negative-marks>Marks for correct answer <span class="positive"><?php echo $marks; ?></span> | Negative Marks <span class="negative"><?php echo $marks; ?>/3</span></span>
   </div>
   <div class="question-number clearfix">
     <span class="question-no">Question No. 1</span>

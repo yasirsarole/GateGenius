@@ -112,9 +112,23 @@ h3 {
 ul {
 	list-style: disc;
 }
-ul li {
+ul li ul {
+	padding-left: 20px;
+	list-style: circle;
+}
+ol {
+	list-style: decimal;
+}
+ol li ol {
+	padding-left: 20px;
+	list-style: lower-alpha;	
+}
+li {
 	font-size: 16px;
 	line-height: 1.3;
+}
+strong {
+	font-weight: 600;
 }
 /*****  Global code ends here *****/
 
@@ -139,7 +153,7 @@ header {
 	right: 0;
 	left: 0;
 	background-image: linear-gradient(to bottom, #0b1f31 , #253a51);
-	z-index: 5;
+	z-index: 30;
 	padding: 10px;
 	border-radius: 5px;
 	margin: 2px;
@@ -1138,6 +1152,7 @@ div.calculator {
 }
 .papers .paper-name {
 	display: inline-block;
+	margin-left: -5px;
 }
 .paper-name span {
 	display: block;
@@ -1150,6 +1165,10 @@ div.calculator {
 }
 .paper-name:first-of-type span {
 	border-left: 1px solid #afafaf;
+}
+.paper-name span.active-section {
+	color: #fff;
+	background: #0067B8;
 }
 .paper-name span::after {
 	content: "\f129";
@@ -1184,7 +1203,7 @@ div.calculator {
 	vertical-align: top;
 	transition: all 0.5s;
 }
-.question-type .mcq-type {
+.question-type .nat-type {
 	display: none;
 }
 .question-type.fullwidth {
@@ -1225,6 +1244,9 @@ div.calculator {
 }
 .slide-button.slide-close::before {
 	content: "\f053";
+}
+.status-images {
+	list-style: none;
 }
 /* .save-next-parent {
 	padding: 10px 0 10px 15px;
@@ -1399,8 +1421,13 @@ div.calculator {
 .qna-section .wysiwyg-content p.question-image {
 	text-align: center;
 }
-.qna-section .wysiwyg-content ul {
+.qna-section .wysiwyg-content ul,
+.qna-section .wysiwyg-content ol {
 	padding: 10px 0;
+}
+.qna-section .wysiwyg-content ol li {
+	margin-bottom: 10px;
+	line-height: 1.3;
 }
 .qna-section .wysiwyg-content ul li {
 	font-size: 25px;
@@ -1409,22 +1436,31 @@ div.calculator {
 	vertical-align: top;
 	margin-bottom: 15px;	
 }
-.qna-section .wysiwyg-content ul li::before {
+.qna-section .wysiwyg-content ul li::before,
+.qna-section .wysiwyg-content ol li::before {
 	font-size: 18px;
 	display: inline-block;
 	vertical-align: middle;
+	margin-right: 5px;
 }
-.qna-section .wysiwyg-content ul li:first-of-type::before {
+.qna-section .wysiwyg-content ul li:first-of-type::before,
+.qna-section .wysiwyg-content ol li:first-of-type::before {
 	content: "(A)";
 }
-.qna-section .wysiwyg-content ul li:nth-of-type(2)::before {
+.qna-section .wysiwyg-content ul li:nth-of-type(2)::before,
+.qna-section .wysiwyg-content ol li:nth-of-type(2)::before {
 	content: "(B)";
 }
-.qna-section .wysiwyg-content ul li:nth-of-type(3)::before {
+.qna-section .wysiwyg-content ul li:nth-of-type(3)::before,
+.qna-section .wysiwyg-content ol li:nth-of-type(3)::before {
 	content: "(C)";
 }
-.qna-section .wysiwyg-content ul li:last-of-type::before {
+.qna-section .wysiwyg-content ul li:last-of-type::before,
+.qna-section .wysiwyg-content ol li:last-of-type::before {
 	content: "(D)";
+}
+.status-info-mobile {
+	display: none;
 }
 /***** Test paper css ends here *****/
 
@@ -1831,6 +1867,81 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
 		margin-right: auto;
 		margin-bottom: 0;
 	}
+	.arrow-section {
+		display: none;
+	}
+	.time-parent .section {
+		display: none;
+	}
+	.time-parent .time-left {
+		float: left;
+	}
+	.scientific-calculator {
+		right: unset;
+		z-index: 25;
+	}
+	.paper-types .papers::before,
+	.paper-types .papers::after {
+		display: none;
+	}
+	.paper-name span,
+	.paper-name:first-of-type span {
+		border: none;
+	}
+	.top-exam-info .left-info,
+	.top-exam-info .right-info {
+		width: 100%;
+	}
+	.student-top-image {
+		display: none;
+	}
+	.question-type {
+		width: 100%;
+	}
+	.exam-status {
+		top: 40px;
+		left: 0;
+    right: 0;
+    width: 99.8%;
+    z-index: 15;
+		background: #fff;
+		display: none;
+	}
+	span.slide-button {
+		display: none;
+	}
+	.status-info-mobile {
+		padding: 5px 0;
+		display: block;
+		height: 30px;
+    width: 100%;
+		background: #0b1f31;	
+		cursor: pointer;			
+	}	
+	.status-info-mobile::after {
+    content: "\f013";
+    font-family: FontAwesome;
+    display: inline-block;
+    float: right;
+    font-size: 30px;
+    margin-right: 10px;
+		color: #fff;
+	}
+	.save-next-parent .left-buttons,
+	.save-next-parent .submit-section {
+		width: 100%;
+		box-sizing: border-box;	
+		margin-left: 0;	
+	}	
+	.paper-name span::after {
+		display: none;
+	}
+	.paper-types ul {
+		border-bottom: 1px solid #afafaf; 
+	}
+	.papers .paper-name {
+		border-right: 1px solid #afafaf;
+	}
 }
 @media only screen and (max-width: 767px) {
 	h1 a {
@@ -1892,6 +2003,94 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
 	.branches li {
 		width: 100%;
     margin-right: 0;
+	}
+}
+@media only screen and (max-width: 540px) {
+	.test-name {
+		display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;		
+	}
+	.paper-instructions {
+		float: none;
+    text-align: center;
+    width: 100%;
+	}
+	.paper-instructions a {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;		
+	}
+	.paper-instructions a {
+		display: block;
+    width: 100%;
+	}
+	.calculator-parent,
+	.time-parent {
+		text-align: center;
+	}
+	.time-parent .time-left {
+		width: 100%;
+	}
+	.papers .paper-name,
+	.top-exam-info .right-info,
+	.status-info-mobile {
+    display: block;
+    text-align: center;		
+	}
+	.status-info-mobile::after {
+		float: unset;
+		margin-right: 0;
+	}
+	.exam-status {
+		width: 98.8%;
+	}
+	div.calculator {
+    display: block;
+    width: 100%;		
+	}
+	.calculator-link {
+    margin: 0 auto;
+    display: inline-block;
+    width: 100%;		
+	}
+	.scientific-calculator {
+    width: 100%;		
+	}
+	.scientific-calculator iframe {
+    overflow-x: auto;
+    width: 100%;
+	}
+	.questype-marks .question-type-name {
+		display: block;
+    text-align: center;
+    margin-bottom: 10px;
+	}
+	.questype-marks .negative-marks {
+		display: block;
+    text-align: center;
+    float: unset;
+	}
+	.save-next-parent .left-buttons {
+		padding-left: 0;
+	}
+	.save-next-parent a {
+		display: block;
+    width: 80%;
+		margin: 0 auto;
+		margin-bottom: 10px;
+	}
+	.save-next-parent a.save-next {
+		float: unset;
+    margin: 0 auto;
+	}
+	.paper-types ul {
+		border-bottom: none;
+	}
+	.papers .paper-name {
+		border-right: none;
+		border-bottom: 1px solid #afafaf;
 	}
 }
 @media only screen and (max-width: 480px) {
