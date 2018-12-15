@@ -54,6 +54,7 @@ get_header();
 			endif;
 			?>			
 			<?php	elseif( get_row_layout() == 'notes' ): ?>
+			<?php $linkText = get_sub_field('link_text'); ?>
 			<span class="year"><?php echo get_sub_field('year'); ?></span>
 			<?php
 			if( have_rows('year_wise_notes') ):
@@ -72,7 +73,7 @@ get_header();
 						<span class="subject-name"><?php echo get_sub_field('subject_name') ?></span>
 						<?php if (get_sub_field('upload_pdf')) { ?>
 						<a href="<?php echo get_sub_field('upload_pdf'); ?>" title="Notes" class="question-paper notes" target="_blank">
-						notes
+						<?php echo $linkText; ?>
 						</a>
 						<?php } ?>				
 					</div>

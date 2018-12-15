@@ -104,6 +104,13 @@
         $('.not-home .nav-menu').slideUp();
       }
     });
+
+    $('main').add('footer').on('click', function() {
+      $('.hamburger').removeClass('inactive');
+      $('.hamburger').addClass('active');
+      $('.not-home .nav-menu').slideUp();      
+    });
+
     $('#menu-hamburger-menu .menu-item-object-custom').children('a').each(function() {
       if ($(this).next('.sub-menu').length) {
         $(this).addClass('acc-inactive');

@@ -85,7 +85,7 @@ body {
 	margin: 0 auto;  
 }
 .website-main {
-	min-height: 75vh;
+	min-height: 80vh;
 }
 .clearfix {
 	overflow: auto;
@@ -1619,7 +1619,37 @@ span.wpcf7-not-valid-tip {
 div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
 	display: none !important;
 }
+#map-canvas {
+	width: 80%;
+	margin: 0 auto 50px;
+}
+#map-canvas iframe {
+	width: 100%;
+	height: 530px;
+}
+
 /***** Contact Us css ends here *****/
+
+/***** *****/
+.page-template-thankyou .website-main { display: flex; }
+
+.thank-you-content {
+	margin: auto; 
+	text-align: center;
+}
+
+.thank-you-content p {
+	font-size: 25px;
+	margin-bottom: 15px;	
+}
+
+.thank-you-content a {
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: 600;
+	color: #0067B8;	
+}
+/***** *****/
 
 /***** Media queries starts here *****/
 @media only screen and (min-width: 993px) {
@@ -1664,11 +1694,11 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
 	}
 	#menu-horizontal-menu .menu-item:hover .sub-menu {
 		display: block;
-		/* padding-top: 5px; */
+		padding-left: 0;
 		z-index: 5;
 	}
 	#menu-vertical-menu .menu-item:hover .sub-menu {
-		/* padding-left: 5px; */
+		padding-left: 0;
 		display: block;
 		left: 100%;
 		top: 0;
@@ -1720,6 +1750,7 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
 	span.year:hover {
 		text-decoration: underline;
 	}
+	.thank-you-content a:hover { text-decoration: underline;}
 }
 @media only screen and (max-width: 992px) {
 	.wrapper {
@@ -2004,6 +2035,7 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
 		width: 100%;
     margin-right: 0;
 	}
+	#map-canvas { width: 100%; }	
 }
 @media only screen and (max-width: 540px) {
 	.test-name {
@@ -2111,7 +2143,6 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
     display: block;
     margin-top: 10px;
 	}
-	.not-home .main-logo,
 	.not-home .social-icons {
 		display: block;
 	}
