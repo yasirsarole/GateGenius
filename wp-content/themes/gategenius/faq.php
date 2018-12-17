@@ -6,6 +6,7 @@ get_header();
 ?>
 <main class="website-main">
   <div class="wrapper">
+    <div class="search-form"><?php echo get_search_form($echo = true) ?></div>
     <div class="questionsandans">
       <h2><?php echo get_the_title(); ?></h2>    
     <?php

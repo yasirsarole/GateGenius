@@ -344,6 +344,10 @@
         $('.actual-left').text('00' + ' : ' + '00');
       }
     },1000);
+
+    $('.search-form form').on('submit', function() {
+      console.log($(this).text());
+    });
   });
 
   $(window).on('load resize', function() {
