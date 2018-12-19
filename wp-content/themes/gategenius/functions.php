@@ -51,4 +51,114 @@
     );
   }
   add_action( 'init', 'register_my_menus' ); 
+
+  // Generate Results for GATE Test
+  // function create_post_type() {
+  //   register_post_type( 'results',
+  //     array(
+  //       'labels' => array(
+  //         'name' => __( 'Results' ),
+  //         'singular_name' => __( 'Result' )
+  //       ),
+  //       'public' => true,
+  //       'has_archive' => true,
+  //     )
+  //   );
+  // }
+  // add_action( 'init', 'create_post_type' );
+
+  // function firsttheme_restapi_resources() {
+  //   wp_enqueue_script('rest_js',get_template_directory_uri().'assets/js/rest.js',NULL,1.0,true);
+  //   wp_localize_script('rest_js', 'myData', array(
+  //     'nonce' => wp_create_nonce('wp_rest'),
+  //     'siteURL' => get_site_url(),
+  //     'ajaxurl' => admin_url('admin-ajax.php')
+  //   ));
+  // }
+  // add_action('wp_enqueue_scripts','firsttheme_restapi_resources');
+
+  /**
+  * Add REST API support to an already registered post type News.
+  */
+  // add_action( 'init', 'my_custom_post_type_rest_support', 25 );
+  // function my_custom_post_type_rest_support() {
+  //   global $wp_post_types;
+  
+  //   //be sure to set this to the name of your post type!
+  //   $post_type_name = 'results';
+  //   if( isset( $wp_post_types[ $post_type_name ] ) ) {
+  //     $wp_post_types[$post_type_name]->show_in_rest = true;
+  //     $wp_post_types[$post_type_name]->rest_base = $post_type_name;
+  //     $wp_post_types[$post_type_name]->rest_controller_class = 'WP_REST_Posts_Controller';
+  //   }
+  // }
+
+  /**
+   * Register a result post type, with REST API support
+   *
+   * Based on example at: http://codex.wordpress.org/Function_Reference/register_post_type
+   */
+  // function firsttheme_register_post_types() {
+  //   /**
+  //    * Post Type: Result.
+  //    */
+  //   $labels = array(
+  //     "name" => __( "Results", "firsttheme" ),
+  //     "all_items" => __( "All Results", "firsttheme" ),
+  //     "add_new" => __( "Add New Result", "firsttheme" ),
+  //     "singular_name" => __( "Result", "firsttheme" ),
+  //     "plural_name" => __( "Results", "firsttheme" ),
+  //     "archives" => __( "Results Archive", "firsttheme" ),
+  //   );
+  //   $args = array(
+  //     "label" => __( "Result", "firsttheme" ),
+  //     "labels" => $labels,
+  //     "public" => true,
+  //     "publicly_queryable" => true,
+  //     "show_ui" => true,
+  //     "has_archive" => true,
+  //     "show_in_menu" => true,
+  //     "exclude_from_search" => false,
+  //     "capability_type" => "post",
+  //     "hierarchical" => false,
+  //     "rewrite" => array( "slug" => "results", "with_front" => true ),
+  //     "query_var" => true,
+  //     'show_in_rest'       => true,
+  //     'rest_base'          => 'result',
+  //     'rest_controller_class' => 'WP_REST_Posts_Controller',
+  //   );
+  //   register_post_type( "result", $args );
+  // }
+  // add_action( 'init', 'firsttheme_register_post_types' );
+
+  // /* Hide UI of Result Post Type from user */
+  // function firsttheme_remove_menu_items() {
+  //     if( !current_user_can( 'administrator' ) ):
+  //         remove_menu_page( 'edit.php?post_type=result' );
+  //     endif;
+  // }
+  // add_action( 'admin_menu', 'firsttheme_remove_menu_items' );
+
+
+  // /* Ajax for checking post Exist or not */
+  // add_action('wp_ajax_checkPost','firsttheme_check_post_exist_or_not');
+
+  // function firsttheme_check_post_exist_or_not(){
+  //   $postTitle = $_POST['postTitle'];
+  //   $result = array('status'=> 0);
+  //   $my_post_query = new WP_Query(array('post_type'=>'result', 'post_status'=>'publish', 'name'=>$postTitle));
+
+  //   if ( $my_post_query->have_posts() ) {
+  //     while ($my_post_query->have_posts()) {
+  //       $my_post_query->the_post();
+  //       $result = array("status"=> 1, "id" => get_the_ID(), "content" => get_the_content(), 'name'=>$postTitle);
+  //     } 
+  //     wp_reset_postdata();
+  //   }
+    
+  //   echo json_encode($result);
+  //   die();
+  // }
+  
 ?>
+

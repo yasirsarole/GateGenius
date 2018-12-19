@@ -620,7 +620,7 @@ h1 span {
 .page-template-general-ins .left-section,
 .page-template-general-inst-two .left-section {
 	width: calc(78% - 5px);
-	height: 67vh;
+	height: 68vh;
 	padding-top: 20px;
 	border-right: 2px solid #000;
 	overflow-y: scroll;
@@ -812,7 +812,7 @@ h1 span {
 	font-weight: 600;
 }
 .page-template-general-inst-two .left-section {
-	height: 56.5vh;
+	height: 58.3vh;
 }
 .previousbutton .mobile-previous {
 	display: none;
