@@ -159,6 +159,22 @@
   //   echo json_encode($result);
   //   die();
   // }
+
+
   
+/* ----- Restrict non loged in users for notes, videos and quesion_paper/solution ----- */
+add_action( 'template_redirect', 'redirect_non_logged_users_to_specific_page' );
+
+function redirect_non_logged_users_to_specific_page() {
+  global $post;
+  if ( !is_user_logged_in() && preg_match('/logged-in/', $post->post_name) ) {
+    $redirect_url = get_permalink();
+    $redirect_url = str_replace('logged-in-', '', $redirect_url);
+    wp_redirect( $redirect_url ); 
+    exit;
+   }
+}
+
+
 ?>
 
