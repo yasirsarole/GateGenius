@@ -50,7 +50,7 @@ get_header();
 								$paperName = get_sub_field('paper_name');
 								$count++;
 						?>
-						<li class="paper-name" data-id="<?php echo 'type'.$count ?>"><span><?php echo $paperName; ?></span></li>	
+						<li class="paper-name" data-id="<?php echo 'type'.$count ?>" data-active=""><span><?php echo $paperName; ?></span></li>	
 						<?php
 								endwhile;
 							endif;
@@ -78,7 +78,7 @@ get_header();
 			</div>
 		</div>
 	</div>
-	<div class="qna-section-main">
+	<div class="qna-section-main" data-papertype-active="">
 		<?php $counter = 0; ?>
 		<div class="wrapper">
 			<?php
@@ -114,15 +114,19 @@ get_header();
 						<div class="choose-question-container">
 							<span class="choose-question">Choose a Question</span>
 							<ul class="status-images">
+								<div class="question-status status-info">
 								<?php
 								if( have_rows('question_type') ):
+									$count = 1;
 									while ( have_rows('question_type') ) : the_row();
 								?>
-								<li class="image"></li>	
-								<?php		
+									<span class="not-answered" data-before-content="<?php echo $count; ?>"></span>
+								<?php
+									$count++;		
 									endwhile;
 								endif;
 								?>
+								</div>
 							</ul>							
 						</div>
 					</div>
