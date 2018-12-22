@@ -348,6 +348,13 @@
     $('.search-form form').on('submit', function() {
       console.log($(this).text());
     });
+
+    // on load only first question will visible
+    $('.question-type .main-section').first().removeClass('hidden');
+  });
+  $('.question-status .not-visited').on('click',function(){
+    $(this).removeClass('not-visited');
+    $(this).addClass('not-answered');
   });
 
   $(window).on('load resize', function() {

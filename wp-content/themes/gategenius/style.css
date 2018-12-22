@@ -2227,3 +2227,7 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
  -webkit-animation-play-state: paused;
  animation-play-state: paused;
  }
+
+ .hidden {
+ 	display: none;
+ }

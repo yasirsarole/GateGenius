@@ -88,7 +88,7 @@ get_header();
 			?>
 				<div class="exam-types" data-target="<?php ?>">
 					<div class="status-info-mobile"></div>
-					<div class="question-type" data-target="<?php echo 'type'.$counter; ?>">					
+					<div class="question-type" data-target="<?php echo 'type'.$counter; ?>" data-active-question="">					
 						<?php
 						if( have_rows('question_type') ):
 							while ( have_rows('question_type') ) : the_row();
@@ -120,7 +120,7 @@ get_header();
 									$count = 1;
 									while ( have_rows('question_type') ) : the_row();
 								?>
-									<span class="not-answered" data-before-content="<?php echo $count; ?>"></span>
+									<span class="not-visited" data-before-content="<?php echo $count; ?>"></span>
 								<?php
 									$count++;		
 									endwhile;

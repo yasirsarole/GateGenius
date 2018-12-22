@@ -1,4 +1,4 @@
-<div class="main-section mcq-type">
+<div class="main-section mcq-type hidden">
   <div class="questype-marks">
     <span class="question-type-name">Question Type : MCQ</span>
     <span class=negative-marks>Marks for correct answer <span class="positive">1</span> | Negative Marks <span class="negative">1/3</span></span>

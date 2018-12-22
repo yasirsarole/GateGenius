@@ -1,4 +1,4 @@
-<div class="main-section nat-type">
+<div class="main-section nat-type main-section mcq-type">
   <div class="questype-marks">
 		<span class="question-type-name">Question Type : MCQ</span>
 		<?php
