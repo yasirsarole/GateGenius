@@ -2282,3 +2282,28 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
 	letter-spacing: 0.4em;
 	text-transform: uppercase;
 }
+
+/* Search Functionality */
+.search-form {
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 1%;
+}
+#search-query {
+	width: calc(75% - 30px);
+	padding: 5px;
+	margin-right: 20px;
+}
+#search {
+    height: 30px;
+	width: 20%;
+	padding: 5px;
+	background-color: #0067b8;
+	color: #FFF;
+	border: none;
+	cursor: pointer;
+}
+#search:hover {
+	background-color: #008fff;
+	color: #FFF;
+}

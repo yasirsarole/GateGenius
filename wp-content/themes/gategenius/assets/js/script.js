@@ -379,4 +379,22 @@
       $('.exam-status').height('auto');
     }      
   });
+
+  // Search implementation
+
+  $("#search-query").on("keyup", function() {
+    var g = $(this).val().toLowerCase();
+    $(".questionsandans .answer").each(function() {
+      if( $(this).css('display') === 'block' ) {
+        $(this).prev('.question').removeClass('open');
+        $(this).prev('.question').addClass('close');
+        $(this).css('display','none');
+      }
+    });
+    $(".questionsandans .question span").each(function() {
+      var s = $(this).text().toLowerCase();
+      $(this).closest('.question')[ s.indexOf(g) !== -1 ? 'show' : 'hide' ]();
+    });
+  });
+
 })(jQuery);
