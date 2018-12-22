@@ -2251,6 +2251,7 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
 .job li {
 	width: calc(16.67% - 15px);
 	padding: 5px;
+	padding-bottom: 10px;
 	text-align: center;
 	font-weight: bold;
 }
@@ -2268,4 +2269,16 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
 }
 .job-container {
 	margin-bottom: 50px;
+}
+.job.available {
+	font-size: 14px;
+	color: green;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+}
+.job.not-available {
+	font-size: 14px;
+	color: red;
+	letter-spacing: 0.4em;
+	text-transform: uppercase;
 }
