@@ -2185,7 +2185,7 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
 	color: red;
 	font-family: monospace;
     width: 60%;
-    margin-left: 5%;
+    margin-left: 10%;
 	overflow: hidden;
 }
 .new-headline h3 {
@@ -2193,21 +2193,21 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
  /*line-height: 50px;*/
  text-align: center;
  /* Starting position */
- -moz-transform:translateX(90%);
- -webkit-transform:translateX(90%);	
+ -moz-transform:translateX(100%);
+ -webkit-transform:translateX(100%);	
  transform:translateX(100%);
  /* Apply animation to this element */	
- -moz-animation: new-headline 20s linear infinite;
- -webkit-animation: new-headline 20s linear infinite;
- animation: new-headline 20s linear infinite;
+ -moz-animation: new-headline 15s linear infinite;
+ -webkit-animation: new-headline 15s linear infinite;
+ animation: new-headline 15s linear infinite;
 }
 /* Move it (define the animation) */
 @-moz-keyframes new-headline {
- 0%   { -moz-transform: translateX(100%); }
+ 0%   { -moz-transform: translateX(110%); }
  100% { -moz-transform: translateX(-100%); }
 }
 @-webkit-keyframes new-headline {
- 0%   { -webkit-transform: translateX(100%); }
+ 0%   { -webkit-transform: translateX(110%); }
  100% { -webkit-transform: translateX(-100%); }
 }
 @keyframes new-headline {
