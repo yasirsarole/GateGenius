@@ -2227,3 +2227,45 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
  -webkit-animation-play-state: paused;
  animation-play-state: paused;
  }
+
+ /* Job Notification page */
+.job-container {
+	width: 100%;
+}
+.title {
+	margin: 5% 0;
+	color: #3a4355;
+	font-weight: bold;
+	font: 400 24px/1.4 'Cutive', Helvetica, Verdana, Arial, sans-serif;
+	text-transform:uppercase;
+	text-align: center;
+	-webkit-text-shadow: 0px 0px 1px #119af2;
+	-moz-text-shadow: 0px 0px 1px #119af2;
+	-o-text-shadow: 0px 0px 1px #119af2;
+	text-shadow: 0px 0px 1px #119af2;
+}
+.job {
+	width: 100%;
+	display: inline-block;
+}
+.job li {
+	width: calc(16.67% - 15px);
+	padding: 5px;
+	text-align: center;
+	font-weight: bold;
+}
+.job.label {
+	color: #3a4355;
+	margin-bottom: 20px;
+	font: 16px 'Cutive', Helvetica, Verdana, Arial, sans-serif;
+	font-weight: bold;
+	text-transform:uppercase;
+	text-align: center;
+	-webkit-text-shadow: 0px 0px 1px #119af2;
+	-moz-text-shadow: 0px 0px 1px #119af2;
+	-o-text-shadow: 0px 0px 1px #119af2;
+	text-shadow: 0px 0px 1px #119af2;
+}
+.job-container {
+	margin-bottom: 50px;
+}
