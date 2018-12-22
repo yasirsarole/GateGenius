@@ -2252,8 +2252,8 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
 	width: calc(16.67% - 15px);
 	padding: 5px;
 	padding-bottom: 10px;
-	text-align: center;
 	font-weight: bold;
+	text-align: center;
 }
 .job.label {
 	color: #3a4355;
@@ -2271,39 +2271,51 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
 	margin-bottom: 50px;
 }
 .job.available {
-	font-size: 14px;
 	color: green;
+	font-size: 14px;
 	letter-spacing: 0.2em;
 	text-transform: uppercase;
 }
 .job.not-available {
-	font-size: 14px;
 	color: red;
+	font-size: 14px;
 	letter-spacing: 0.4em;
 	text-transform: uppercase;
 }
 
 /* Search Functionality */
+.responsive {
+	display: none;
+}
 .search-form {
-	width: 50%;
+	width: 90%;
 	margin: 0 auto;
-	margin-top: 1%;
+	margin-top: 50px;
 }
 #search-query {
 	width: calc(75% - 30px);
 	padding: 5px;
 	margin-right: 20px;
+	font-size: 12pt;
 }
 #search {
-    height: 30px;
-	width: 20%;
+    height: 32px;
+    width: calc(25% - 10px);
 	padding: 5px;
+	border: none;
 	background-color: #0067b8;
 	color: #FFF;
-	border: none;
 	cursor: pointer;
+	font-size: 8pt;
+	text-transform: uppercase;
 }
 #search:hover {
-	background-color: #008fff;
 	color: #FFF;
+	background-color: #008fff;
+}
+
+@media only screen and (max-width: 900px) {
+	.responsive {
+		display: block;
+	}
 }

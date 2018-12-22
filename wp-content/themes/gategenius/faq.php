@@ -6,7 +6,7 @@ get_header();
 ?>
 <main class="website-main">
   <div class="wrapper">
-    <div class="search-form">   
+    <div class="search-form responsive">   
       <input type="text" id="search-query">
       <input type="button" id="search" value="search">
     </div>
