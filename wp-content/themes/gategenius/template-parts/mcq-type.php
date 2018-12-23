@@ -1,4 +1,5 @@
-<div class="main-section mcq-type">
+<?php global $question_counter; ?>
+<div class="main-section mcq-type invisible" data-question-id="<?php echo 'question-id-'.$question_counter; ?>">
   <div class="questype-marks">
     <span class="question-type-name">Question Type : MCQ</span>
     <span class=negative-marks>Marks for correct answer <span class="positive">1</span> | Negative Marks <span class="negative">1/3</span></span>
@@ -36,3 +37,4 @@
     </figure>	    
   </div>
 </div>
+<?php $question_counter++; ?>

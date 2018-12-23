@@ -50,7 +50,7 @@ get_header();
 								$paperName = get_sub_field('paper_name');
 								$count++;
 						?>
-						<li class="paper-name" data-id="<?php echo 'type'.$count ?>" data-active=""><span><?php echo $paperName; ?></span></li>	
+						<li class="paper-name" data-id="<?php echo 'type-'.$count ?>" data-active=""><span><?php echo $paperName; ?></span></li>	
 						<?php
 								endwhile;
 							endif;
@@ -78,17 +78,17 @@ get_header();
 			</div>
 		</div>
 	</div>
-	<div class="qna-section-main" data-papertype-active="">
-		<?php $counter = 0; ?>
+	<div class="qna-section-main">
+		<?php $examtype_counter = 1; ?>
+		<?php $question_counter = 1; ?>
 		<div class="wrapper">
 			<?php
 				if( have_rows('paper_types') ):
 					while ( have_rows('paper_types') ) : the_row();
-					$counter++;
 			?>
-				<div class="exam-types" data-target="<?php ?>">
+				<div class="exam-types invisible" data-exam-type="<?php echo 'type-'.$examtype_counter; ?>">
 					<div class="status-info-mobile"></div>
-					<div class="question-type" data-target="<?php echo 'type'.$counter; ?>">					
+					<div class="question-type">					
 						<?php
 						if( have_rows('question_type') ):
 							while ( have_rows('question_type') ) : the_row();
@@ -98,6 +98,7 @@ get_header();
 										get_template_part('template-parts/nat', 'type');
 									endif;
 							endwhile;
+							$examtype_counter++;
 						endif;
 						?>
 					</div>
@@ -120,7 +121,7 @@ get_header();
 									$count = 1;
 									while ( have_rows('question_type') ) : the_row();
 								?>
-									<span class="not-answered" data-before-content="<?php echo $count; ?>"></span>
+									<span class="not-visited" data-before-content="<?php echo $count; ?>"></span>
 								<?php
 									$count++;		
 									endwhile;

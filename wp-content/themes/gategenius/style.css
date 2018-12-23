@@ -1191,12 +1191,12 @@ div.calculator {
 	margin-right: 1%;
 }
 .exam-types {
-	display: none;
+	/*display: none;*/
 	position: relative;
 }
-.exam-types:first-of-type {
+/*.exam-types:first-of-type {
 	display: block;
-}
+}*/
 .question-type {
 	display: inline-block;
 	width: calc(78% - 5px);
@@ -1204,7 +1204,7 @@ div.calculator {
 	transition: all 0.5s;
 }
 .question-type .nat-type {
-	display: none;
+	/*display: none;*/
 }
 .question-type.fullwidth {
 	width: calc(100% - 5px);;
@@ -2318,4 +2318,12 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
 	.responsive {
 		display: block;
 	}
+}
+
+/* Gate Exam */
+.invisible {
+	display: none;
+}
+.visible {
+	display: block;
 }

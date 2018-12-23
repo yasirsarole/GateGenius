@@ -1,4 +1,5 @@
-<div class="main-section nat-type">
+<?php global $question_counter; ?>
+<div class="main-section nat-type invisible" data-question-id="<?php echo 'question-id-'.$question_counter; ?>">
   <div class="questype-marks">
 		<span class="question-type-name">Question Type : MCQ</span>
 		<?php
@@ -50,3 +51,4 @@
 	</figure>
   </div>
 </div>
+<?php $question_counter++; ?>
