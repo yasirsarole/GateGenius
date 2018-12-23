@@ -80,7 +80,6 @@ get_header();
 	</div>
 	<div class="qna-section-main">
 		<?php $examtype_counter = 1; ?>
-		<?php $question_counter = 1; ?>
 		<div class="wrapper">
 			<?php
 				if( have_rows('paper_types') ):
@@ -91,6 +90,7 @@ get_header();
 					<div class="question-type">					
 						<?php
 						if( have_rows('question_type') ):
+							$question_counter = 1;
 							while ( have_rows('question_type') ) : the_row();
 									if( get_row_layout() == 'multiple_choice' ):
 										get_template_part('template-parts/mcq', 'type');
@@ -105,11 +105,11 @@ get_header();
 					<div class="exam-status">
 						<span class="slide-button"></span>
 						<div class="status-info">
-							<span class="answered">Answered</span>
-							<span class="not-answered">Not Answered</span>
-							<span class="not-visited">Not Visited</span>
-							<span class="mark-review">Marked for Review</span>
-							<span class="answered-and-marked">Answered & Marked for Review (will be considered for evaluation)</span>
+							<span class="answered" data-before-content="">Answered</span>
+							<span class="not-answered" data-before-content="">Not Answered</span>
+							<span class="not-visited" data-before-content="">Not Visited</span>
+							<span class="mark-review" data-before-content="">Marked for Review</span>
+							<span class="answered-and-marked" data-before-content="">Answered & Marked for Review (will be considered for evaluation)</span>
 						</div>
 						<span class="subject-title">Dynamic Subject Name</span>
 						<div class="choose-question-container">

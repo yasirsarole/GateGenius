@@ -408,7 +408,7 @@
     });
 
     var getActiveExamType = $('.qna-section-main').attr('data-active-exam-type');
-    var getActiveQuestionNo = $('.exam-types').attr('data-active-question');
+    var getActiveQuestionNo = $("[data-exam-type='" + getActiveExamType + "']").attr('data-active-question');
     
     // make exam type visible
     // console.log($("[data-exam-type='" + getActiveExamType + "']"));
@@ -422,6 +422,15 @@
       $("[data-exam-type='" + getActiveExamType + "']").find("[data-question-id='" + getActiveQuestionNo + "']").removeClass('invisible');
       $("[data-exam-type='" + getActiveExamType + "']").find("[data-question-id='" + getActiveQuestionNo + "']").addClass('visible');
     }
+
+    // status update
+    $("[data-exam-type='" + getActiveExamType + "']").find('.exam-status .question-status span').first().removeClass('not-visited');
+    $("[data-exam-type='" + getActiveExamType + "']").find('.exam-status .question-status span').first().addClass('not-answered');
+
+    $("[data-exam-type='" + getActiveExamType + "']").find('.status-info .answered').attr('data-before-content', $("[data-exam-type='" + getActiveExamType + "']").find('.question-status .answered').length);
+    $("[data-exam-type='" + getActiveExamType + "']").find('.status-info .not-answered').attr('data-before-content', $("[data-exam-type='" + getActiveExamType + "']").find('.question-status .not-answered').length);
+
+    updateQuestionStatuses();
   });
 
 
@@ -433,10 +442,14 @@
     }
     $('.paper-types').attr('data-active-paper', clickedPaper);
     $('.qna-section-main').attr('data-active-exam-type', clickedPaper);
-      activeQuestion(currPaper);
+    makeActiveQuestion(currPaper);
+    $("[data-exam-type='" + clickedPaper + "']").find('.exam-status .question-status span').first().removeClass('not-visited');
+    $("[data-exam-type='" + clickedPaper + "']").find('.exam-status .question-status span').first().addClass('not-answered');
+    updateQuestionStatuses();
   });
 
-  function activeQuestion(currPaper) {
+
+  function makeActiveQuestion(currPaper) {
     var currQuestionNo = $("[data-exam-type='" + currPaper + "']").attr('data-active-question');
 
     var getActiveExamType = $('.qna-section-main').attr('data-active-exam-type');
@@ -448,22 +461,99 @@
 
   }
 
+
   function updateClassByDataValue(dataValue, questionId){
+    // make in-visible
     if($("[data-exam-type='" + dataValue + "']").hasClass('visible') && $("[data-exam-type='" + dataValue + "']").find("[data-question-id='" + questionId + "']").hasClass('visible')){
       $("[data-exam-type='" + dataValue + "']").removeClass('visible');
       $("[data-exam-type='" + dataValue + "']").addClass('invisible');
 
       $("[data-exam-type='" + dataValue + "']").find("[data-question-id='" + questionId + "']").removeClass('visible');
       $("[data-exam-type='" + dataValue + "']").find("[data-question-id='" + questionId + "']").addClass('invisible');
+      // $("[data-exam-type='" + dataValue + "']").attr('data-active-question','');
+      // console.log("Type "+dataValue);
+      // console.log("Invisible Question "+questionId);
     } else if($("[data-exam-type='" + dataValue + "']").hasClass('invisible') && $("[data-exam-type='" + dataValue + "']").find("[data-question-id='" + questionId + "']").hasClass('invisible')) {
+      // make visible
       $("[data-exam-type='" + dataValue + "']").removeClass('invisible');
       $("[data-exam-type='" + dataValue + "']").addClass('visible');
 
       $("[data-exam-type='" + dataValue + "']").find("[data-question-id='" + questionId + "']").removeClass('invisible');
       $("[data-exam-type='" + dataValue + "']").find("[data-question-id='" + questionId + "']").addClass('visible');
+      // var setIt = $("[data-exam-type='" + dataValue + "']").attr('data-active-question');
+      // console.log("Type "+dataValue);
+      // console.log("Visible Question "+questionId);
+      $("[data-exam-type='" + dataValue + "']").attr('data-active-question',questionId);
     }
   }
   
+
+
+  function updateQuestionStatuses(){
+    updateStatusNotVisited();
+    updateStatusNotAnswered();
+    updateStatusAnswered();
+    updateStatusAnsweredAndMarkForReview();
+    updateStatusMarkForReview();
+  }
+
+  $('.question-status .not-visited').on('click',function(){
+    var ID = 'question-id-'+ $(this).attr('data-before-content');
+
+    var activeExamType = $('.paper-types').attr('data-active-paper');
+    var activeQuestion = $("[data-exam-type='" + activeExamType + "']").attr('data-active-question');
+
+    console.log("Active"+activeQuestion);
+    console.log("Clicked"+ID);
+    // toggle Question visiblity
+    if(activeQuestion != ID){
+      $('.paper-types').attr('data-active-paper', activeExamType);
+      // $('.qna-section-main').attr('data-active-exam-type', activeExamType);
+      // $('.qna-section-main').attr('data-active-exam-type', activeExamType);
+      toggleQuestionVisibility(activeExamType,activeQuestion,ID);
+    }
+    
+    // if()
+    $(this).removeClass('not-visited');
+    $(this).addClass('not-answered');
+    updateQuestionStatuses();
+  });
+
+  function toggleQuestionVisibility(activeExamType,oldQuestion, newQuestion){
+    updateClassByDataValue(activeExamType,oldQuestion);
+    updateClassByDataValue(activeExamType,newQuestion);
+  }
+
+  // $('.save-next').on('click',function(){
+  //   var getActiveExamType = $('.qna-section-main').data('active-exam-type');
+  //   var getActiveQuestionNo = $('.qna-section-main').data('active-question');
+  //   $(this).removeClass('not-visited');
+  //   $(this).addClass('not-answered');
+  //   updateQuestionStatuses();
+  // });
+
+
+  function updateStatusNotAnswered(){
+    var getActiveExamTypeStatus = $('.paper-types').attr('data-active-paper');
+    $("[data-exam-type='" + getActiveExamTypeStatus + "']").find('.status-info .not-answered').first().attr('data-before-content', $("[data-exam-type='" + getActiveExamTypeStatus + "']").find('.question-status .not-answered').length);
+  }
+  function updateStatusNotVisited(){
+    var getActiveExamTypeStatus = $('.paper-types').attr('data-active-paper');
+    $("[data-exam-type='" + getActiveExamTypeStatus + "']").find('.status-info .not-visited').first().attr('data-before-content', $("[data-exam-type='" + getActiveExamTypeStatus + "']").find('.question-status .not-visited').length);
+  }
+  function updateStatusAnswered(){
+    var getActiveExamTypeStatus = $('.paper-types').attr('data-active-paper');
+    $("[data-exam-type='" + getActiveExamTypeStatus + "']").find('.status-info .answered').first().attr('data-before-content', $("[data-exam-type='" + getActiveExamTypeStatus + "']").find('.question-status .answered').length);
+  }
+  function updateStatusAnsweredAndMarkForReview(){
+    var getActiveExamTypeStatus = $('.paper-types').attr('data-active-paper');
+    $("[data-exam-type='" + getActiveExamTypeStatus + "']").find('.status-info .answered-and-marked').first().attr('data-before-content', $("[data-exam-type='" + getActiveExamTypeStatus + "']").find('.question-status .answered-and-marked').length);
+  }
+  function updateStatusMarkForReview(){
+    var getActiveExamTypeStatus = $('.paper-types').attr('data-active-paper');
+    $("[data-exam-type='" + getActiveExamTypeStatus + "']").find('.status-info .mark-review').first().attr('data-before-content', $("[data-exam-type='" + getActiveExamTypeStatus + "']").find('.question-status .mark-review').length);
+  }
+
 
   // $('.save-next').on('click',function(){
   //   var getActiveExamType = $('.qna-section-main').data('active-exam-type');

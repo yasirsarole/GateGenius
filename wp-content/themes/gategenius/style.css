@@ -1340,7 +1340,7 @@ div.calculator {
 	width: 100%;
 }
 .status-info span::before {
-	content: "0";
+	content: attr(data-before-content);
 	width: 30px;
 	height: 30px;
 	padding-top: 15px;
