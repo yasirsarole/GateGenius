@@ -342,6 +342,7 @@
       if (actualTime == 00) {
         clearInterval(interval);
         $('.actual-left').text('00' + ' : ' + '00');
+        callAjax();
       }
     },1000);
 
@@ -349,6 +350,9 @@
       console.log($(this).text());
     });
   });
+  function callAjax(){
+    alert("Time Over");
+  }
 
   $(window).on('load, resize', function() {
     if (window.innerWidth < 768) {
@@ -583,6 +587,38 @@
     var activeExamTypeReview = $('.paper-types').attr('data-active-paper');
     var activeQuestionReview = $("[data-exam-type='" + activeExamTypeReview + "']").attr('data-active-question');;
 
+    // Evaluation of Answered Question
+    if(status){
+      var answer;
+      if($("[data-exam-type='" + activeExamTypeReview + "']").find("[data-question-id='" + activeQuestionReview + "']").hasClass('mcq-type')){
+        // check mcq Question
+        $("[data-exam-type='" + activeExamTypeReview + "']").find("[data-question-id='" + activeQuestionReview + "']").find('.ans-options input').each(function(){
+          if($(this).prop("checked")){
+            answer = $(this).val();
+            return false;
+          }
+        });
+        var currMark = $("[data-exam-type='" + activeExamTypeReview + "']").find("[data-question-id='" + activeQuestionReview + "']").attr('data-question-marks');
+        if($("[data-exam-type='" + activeExamTypeReview + "']").find("[data-question-id='" + activeQuestionReview + "']").attr('data-correct-answer') == answer){
+          $("[data-exam-type='" + activeExamTypeReview + "']").find("[data-question-id='" + activeQuestionReview + "']").attr('data-marks-scored', currMark);
+        }else{
+          var minusMark = -(Number(currMark))/3;
+          $("[data-exam-type='" + activeExamTypeReview + "']").find("[data-question-id='" + activeQuestionReview + "']").attr('data-marks-scored', minusMark);
+        }
+      } else if($("[data-exam-type='" + activeExamTypeReview + "']").find("[data-question-id='" + activeQuestionReview + "']").hasClass('nat-type')){
+      var answer = Number($("[data-exam-type='" + activeExamTypeReview + "']").find("[data-question-id='" + activeQuestionReview + "']").find('.answer-field input').val());
+      var currMark = $("[data-exam-type='" + activeExamTypeReview + "']").find("[data-question-id='" + activeQuestionReview + "']").attr('data-question-marks');
+      var correctAnswer = Number($("[data-exam-type='" + activeExamTypeReview + "']").find("[data-question-id='" + activeQuestionReview + "']").attr('data-correct-answer'));
+
+      if(answer === correctAnswer){
+        $("[data-exam-type='" + activeExamTypeReview + "']").find("[data-question-id='" + activeQuestionReview + "']").attr('data-marks-scored', currMark);
+      }else{
+        var minusMark = -(Number(currMark))/3;
+        $("[data-exam-type='" + activeExamTypeReview + "']").find("[data-question-id='" + activeQuestionReview + "']").attr('data-marks-scored', minusMark);
+      }
+    }
+    }
+
     var activeExamTypeLasQuestion = $("[data-exam-type='" + activeExamTypeReview + "']").find('.question-type .main-section').last().attr('data-question-id');
     var lastExamType = $('.exam-types').last().attr('data-exam-type');
 
@@ -636,6 +672,39 @@
     var activeExamTypeLasQuestion = $("[data-exam-type='" + activeExamTypeChangeQuestion + "']").find('.question-type .main-section').last().attr('data-question-id');
     var lastExamType = $('.exam-types').last().attr('data-exam-type');
     
+
+    // update selected answer to data attribute
+    var answer;
+    if($("[data-exam-type='" + activeExamTypeChangeQuestion + "']").find("[data-question-id='" + activeQuestionChangeQuestion + "']").hasClass('mcq-type')){
+      // check mcq Question
+      $("[data-exam-type='" + activeExamTypeChangeQuestion + "']").find("[data-question-id='" + activeQuestionChangeQuestion + "']").find('.ans-options input').each(function(){
+        if($(this).prop("checked")){
+          answer = $(this).val();
+          return false;
+        }
+      });
+      var currMark = $("[data-exam-type='" + activeExamTypeChangeQuestion + "']").find("[data-question-id='" + activeQuestionChangeQuestion + "']").attr('data-question-marks');
+      if($("[data-exam-type='" + activeExamTypeChangeQuestion + "']").find("[data-question-id='" + activeQuestionChangeQuestion + "']").attr('data-correct-answer') == answer){
+        $("[data-exam-type='" + activeExamTypeChangeQuestion + "']").find("[data-question-id='" + activeQuestionChangeQuestion + "']").attr('data-marks-scored', currMark);
+      }else{
+        var minusMark = -(Number(currMark))/3;
+        $("[data-exam-type='" + activeExamTypeChangeQuestion + "']").find("[data-question-id='" + activeQuestionChangeQuestion + "']").attr('data-marks-scored', minusMark);
+      }
+    } else if($("[data-exam-type='" + activeExamTypeChangeQuestion + "']").find("[data-question-id='" + activeQuestionChangeQuestion + "']").hasClass('nat-type')){
+      var answer = Number($("[data-exam-type='" + activeExamTypeChangeQuestion + "']").find("[data-question-id='" + activeQuestionChangeQuestion + "']").find('.answer-field input').val());
+      var currMark = $("[data-exam-type='" + activeExamTypeChangeQuestion + "']").find("[data-question-id='" + activeQuestionChangeQuestion + "']").attr('data-question-marks');
+      var correctAnswer = Number($("[data-exam-type='" + activeExamTypeChangeQuestion + "']").find("[data-question-id='" + activeQuestionChangeQuestion + "']").attr('data-correct-answer'));
+
+      if(answer === correctAnswer){
+        $("[data-exam-type='" + activeExamTypeChangeQuestion + "']").find("[data-question-id='" + activeQuestionChangeQuestion + "']").attr('data-marks-scored', currMark);
+      }else{
+        var minusMark = -(Number(currMark))/3;
+        $("[data-exam-type='" + activeExamTypeChangeQuestion + "']").find("[data-question-id='" + activeQuestionChangeQuestion + "']").attr('data-marks-scored', minusMark);
+      }
+    }
+
+    // $("[data-exam-type='" + activeExamTypeChangeQuestion + "']").find("[data-question-id='" + activeQuestionChangeQuestion + "']")
+
     if(activeQuestionChangeQuestion == activeExamTypeLasQuestion){
       if(activeExamTypeChangeQuestion != lastExamType){
         updateCurrentQuestionStatusAnswered(activeQuestionChangeQuestion,activeExamTypeChangeQuestion);

@@ -1,5 +1,15 @@
 <?php global $question_counter; ?>
-<div class="main-section nat-type invisible" data-question-id="<?php echo 'question-id-'.$question_counter; ?>">
+<?php
+	if(get_sub_field('correct_answer')){
+		$correctAnswer = get_sub_field('correct_answer');
+	}
+	if(get_sub_field('one')){
+		$questionMark = 1;
+	} else if(get_sub_field('two')){
+		$questionMark = 2;
+	}
+?>
+<div class="main-section nat-type invisible" data-question-id="<?php echo 'question-id-'.$question_counter; ?>" data-correct-answer="<?php echo $correctAnswer; ?>" data-question-marks="<?php echo $questionMark; ?>" data-marks-scored="0">
   <div class="questype-marks">
 		<span class="question-type-name">Question Type : MCQ</span>
 		<?php

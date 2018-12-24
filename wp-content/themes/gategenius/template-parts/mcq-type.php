@@ -1,5 +1,22 @@
 <?php global $question_counter; ?>
-<div class="main-section mcq-type invisible" data-question-id="<?php echo 'question-id-'.$question_counter; ?>">
+<?php
+  if(get_sub_field('a')){
+    $correctAnswer = 'A';
+  }else if(get_sub_field('b')){
+    $correctAnswer = 'B';
+  } else if(get_sub_field('c')){
+    $correctAnswer = 'C';
+  } else if(get_sub_field('d')){
+    $correctAnswer = 'D';
+  }
+
+  if(get_sub_field('one')){
+    $questionMark = 1;
+  } else if(get_sub_field('two')){
+    $questionMark = 2;
+  }
+?>
+<div class="main-section mcq-type invisible" data-question-id="<?php echo 'question-id-'.$question_counter; ?>" data-correct-answer="<?php echo $correctAnswer; ?>" data-question-marks="<?php echo $questionMark; ?>" data-marks-scored="0">
   <div class="questype-marks">
     <span class="question-type-name">Question Type : MCQ</span>
     <span class=negative-marks>Marks for correct answer <span class="positive">1</span> | Negative Marks <span class="negative">1/3</span></span>
