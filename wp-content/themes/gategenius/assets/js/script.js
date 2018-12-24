@@ -141,77 +141,6 @@
       };
     });
 
-    // Js for exam page Keyboard
-    if ($('body').hasClass('page-template-main-exam')) {
-      document.getElementById("myinputbox").focus();
-    }
-    var answerVal = $('.input-answer').val();
-    $('.numbers li').on('click', function() {
-      answerVal = answerVal + $(this).text();
-      $('.input-answer').val(answerVal);
-      document.getElementById("myinputbox").focus();
-    });
-
-    $('.backspace').on('click', function() {
-      answerVal = answerVal.substr(0, answerVal.length - 1);
-      $('.input-answer').val(answerVal);
-      document.getElementById("myinputbox").focus();
-    });
-
-    $('.clear-all').on('click', function() {
-      answerVal = '';
-      $('.input-answer').val(answerVal);
-      document.getElementById("myinputbox").focus();
-    });
-
-    $('.back-arrow').on('click', function() {
-      var input = document.getElementById('myinputbox');
-      document.getElementById("myinputbox").focus();
-      setCaretPosition(input, doGetCaretPosition(input) - 1);       
-    });
-    
-    $('.forward-arrow').on('click', function() {
-      var input = document.getElementById('myinputbox');
-      document.getElementById("myinputbox").focus();
-      setCaretPosition(input, doGetCaretPosition(input) + 1);           
-    });     
-
-    function setCaretPosition(ctrl, pos) {
-      // Modern browsers
-      if (ctrl.setSelectionRange) {
-        ctrl.focus();
-        ctrl.setSelectionRange(pos, pos);
-      
-      // IE8 and below
-      } else if (ctrl.createTextRange) {
-        var range = ctrl.createTextRange();
-        range.collapse(true);
-        range.moveEnd('character', pos);
-        range.moveStart('character', pos);
-        range.select();
-      }
-    }
-
-    function doGetCaretPosition(oField) {
-      // Initialize
-      var iCaretPos = 0;
-      // IE Support
-      if (document.selection) {
-        // Set focus on the element
-        oField.focus();
-        // To get cursor position, get empty selection range
-        var oSel = document.selection.createRange();
-        // Move selection start to 0 position
-        oSel.moveStart('character', -oField.value.length);
-        // The caret position is selection length
-        iCaretPos = oSel.text.length;
-      }
-      // Firefox support
-      else if (oField.selectionStart || oField.selectionStart == '0')
-        iCaretPos = oField.selectionStart;
-      // Return results
-      return iCaretPos;
-    }
     
     // Js for checbox answer on exam page
     $('.ans-options input:checkbox').on('click', function() {
@@ -329,7 +258,7 @@
           actualTime = '0' + actualTime;
         }              
       }
-      seconds = seconds - 1;
+      seconds = seconds - 30;
 
       if (seconds < 10) {
         seconds = '0' + seconds;
@@ -339,71 +268,15 @@
     var interval = setInterval(function() {
       decreaseTime();
       $('.actual-left').text(actualTime + ' : ' + seconds);
-      if (actualTime == 00) {
+      if (actualTime == 00 && seconds == 00) {
         clearInterval(interval);
         $('.actual-left').text('00' + ' : ' + '00');
-        callAjax();
+          EvaluateMarks();
       }
     },1000);
 
-    $('.search-form form').on('submit', function() {
-      console.log($(this).text());
-    });
-  });
-  function callAjax(){
-    alert("Time Over");
-  }
+    // Gate Exam
 
-  $(window).on('load, resize', function() {
-    if (window.innerWidth < 768) {
-      $('#myinputbox').attr('readonly', 'true');
-    } else {
-      $('#myinputbox').removeAttr('readonly');
-    }    
-
-    // Js for contact page branches equal height
-    if (window.innerWidth > 768) {
-      $('.branches li').each(function() {
-        var currentHeight = 0;
-        $(this).height('auto');
-        if ($(this).height() > currentHeight) {
-          currentHeight = $(this).height();
-        }
-        $('.branches li').height(currentHeight);
-      });
-    } else {
-      $('.branches li').height('auto');
-    }
-
-    if (window.innerWidth > 992) {
-      $('.exam-status').height($('.question-type').height() - 3);
-      var extraHeight = $('.exam-status .status-info').innerHeight() + $('.exam-status .subject-title').innerHeight();
-      $('.choose-question-container').innerHeight($('.exam-status').height() - extraHeight);
-    } else {
-      $('.exam-status').height('auto');
-    }      
-  });
-
-  // Search implementation
-
-  $("#search-query").on("keyup", function() {
-    var g = $(this).val().toLowerCase();
-    $(".questionsandans .answer").each(function() {
-      if( $(this).css('display') === 'block' ) {
-        $(this).prev('.question').removeClass('open');
-        $(this).prev('.question').addClass('close');
-        $(this).css('display','none');
-      }
-    });
-    $(".questionsandans .question span").each(function() {
-      var s = $(this).text().toLowerCase();
-      $(this).closest('.question')[ s.indexOf(g) !== -1 ? 'show' : 'hide' ]();
-    });
-  });
-
-
-  // Gate Exam
-  $(window).on('load',function(){
     $('.paper-types').attr('data-active-paper', 'type-1');
     $('.qna-section-main').attr('data-active-exam-type', 'type-1');
 
@@ -435,6 +308,143 @@
     $("[data-exam-type='" + getActiveExamType + "']").find('.status-info .not-answered').attr('data-before-content', $("[data-exam-type='" + getActiveExamType + "']").find('.question-status .not-answered').length);
 
     updateQuestionStatuses();
+    
+
+
+
+  });
+
+  function EvaluateMarks(){
+    // Marks Evaluation Goes Here
+    var totalMarks = 0;
+    var outOfMarks = 0;
+
+    // Calculate OutOf Marks
+    $("[data-question-marks]").each(function(){
+    outOfMarks += Number($(this).attr('data-question-marks'));
+    });
+
+    // Calculate Scored Marks with nagitive making
+    $("[data-marks-scored]").each(function(){
+    totalMarks += Number($(this).attr('data-marks-scored'));
+    });
+
+    var postTitle = myData.userloginname + " - " + myData.userID;
+    var content = myData.todaysdate + " - " + totalMarks + " / " + outOfMarks;
+
+    var postData = {
+      "title": postTitle,
+      "content": content,
+      "status": "publish"
+    }
+
+
+    jQuery.ajax({
+      method: "POST",
+      url: myData.ajaxurl,
+      data: {
+        action: 'checkPost',
+        postTitle: postTitle  
+      },
+      success: function(res){
+        res = JSON.parse(res);
+        if(res['status'] == 0) {
+          createPostMethod();
+        }else {
+          postData.content = res['content'] + "\n" + postData.content;
+          updatePostMethod(res['id']);
+        }
+      }
+    });
+
+    function createPostMethod(){
+      fetch(myData.siteURL+"/index.php/wp-json/wp/v2/result",{
+          method: "POST",
+          headers:{
+              'Content-Type': 'application/json;charset=UTF-8',
+              'accept': 'application/json',
+              'X-WP-Nonce': myData.nonce
+          },
+          body:JSON.stringify({
+              title: postData.title,
+              content: postData.content,
+              status: 'publish'
+          })
+      }).then(function(){
+            // redirect User to thankyou page
+            console.log('Result Created');
+      });
+    }
+
+    function updatePostMethod(id){
+      fetch(myData.siteURL+'/index.php/wp-json/wp/v2/result/'+id,{
+          method: "PUT",
+          headers:{
+              'Content-Type': 'application/json;charset=UTF-8',
+              'accept': 'application/json',
+              'X-WP-Nonce': myData.nonce
+          },
+          body:JSON.stringify({
+              title: postData.title,
+              content: postData.content,
+              fields: {
+                user_name: postData.fields.user_name
+              },
+              status: 'publish'
+          })
+      }).then(function(){
+            // redirect user to thank you page
+            console.log('Result Updated');
+      });
+    }
+  }
+
+  $(window).on('load, resize', function() {
+    if (window.innerWidth < 768) {
+      $('.myinputbox-keyboard').attr('readonly', 'true');
+    } else {
+      $('.myinputbox-keyboard').removeAttr('readonly');
+    }    
+
+    // Js for contact page branches equal height
+    if (window.innerWidth > 768) {
+      $('.branches li').each(function() {
+        var currentHeight = 0;
+        $(this).height('auto');
+        if ($(this).height() > currentHeight) {
+          currentHeight = $(this).height();
+        }
+        $('.branches li').height(currentHeight);
+      });
+    } else {
+      $('.branches li').height('auto');
+    }
+
+    if (window.innerWidth > 992) {
+      $('.exam-status').height($('.question-type').height() - 3);
+      var extraHeight = $('.exam-status .status-info').innerHeight() + $('.exam-status .subject-title').innerHeight();
+      $('.choose-question-container').innerHeight($('.exam-status').height() - extraHeight);
+    } else {
+      $('.exam-status').height('auto');
+    }      
+
+  });
+
+  // Search implementation
+
+  $("#search-query").on("keyup", function() {
+    var g = $(this).val().toLowerCase();
+    $(".questionsandans .answer").each(function() {
+      if( $(this).css('display') === 'block' ) {
+        $(this).prev('.question').removeClass('open');
+        $(this).prev('.question').addClass('close');
+        $(this).css('display','none');
+      }
+    });
+    $(".questionsandans .question span").each(function() {
+      var s = $(this).text().toLowerCase();
+      $(this).closest('.question')[ s.indexOf(g) !== -1 ? 'show' : 'hide' ]();
+    });
   });
 
 

@@ -3,6 +3,15 @@
   function gate_genius_scripts() {
     wp_enqueue_style('main-style', get_stylesheet_uri(), array(), time(), false);  
     wp_enqueue_script('main-js', get_stylesheet_directory_uri() . '/assets/js/script.js', array('jquery'), time(), true);
+    
+    wp_localize_script('main-js', 'myData', array(
+      'nonce' => wp_create_nonce('wp_rest'),
+      'siteURL' => get_site_url(),
+      'ajaxurl' => admin_url('admin-ajax.php'),
+      'userID' => wp_get_current_user()->data->ID,
+      'userloginname' => wp_get_current_user()->data->display_name,
+      'todaysdate' => date('d-m-Y')
+    ));
     wp_enqueue_style('raleway-font', 'https://fonts.googleapis.com/css?family=Raleway', array(), time(), false);
     wp_enqueue_style('opensans-font', 'https://fonts.googleapis.com/css?family=Open+Sans', array(), time(), false);
     wp_enqueue_style('mons-font', 'https://fonts.googleapis.com/css?family=Montserrat', array(), time(), false);
@@ -173,6 +182,62 @@ function redirect_non_logged_users_to_specific_page() {
     wp_redirect( $redirect_url ); 
     exit;
    }
+}
+
+
+/**
+ * Register a result post type, with REST API support
+ *
+ * Based on example at: http://codex.wordpress.org/Function_Reference/register_post_type
+ */
+function gateGenius_register_post_types() {
+  /**
+   * Post Type: Result.
+   */
+  $labels = array(
+    "name" => __( "Results" ),
+    "all_items" => __( "All Results" ),
+    "add_new" => __( "Add New Result" ),
+    "singular_name" => __( "Result" ),
+    "plural_name" => __( "Results" ),
+    "archives" => __( "Results Archive" ),
+  );
+  $args = array(
+    "label" => __( "Result" ),
+    "labels" => $labels,
+    "public" => true,
+    "publicly_queryable" => true,
+    "show_ui" => true,
+    "has_archive" => true,
+    "show_in_menu" => true,
+    "exclude_from_search" => false,
+    "capability_type" => "post",
+    "hierarchical" => false,
+    "rewrite" => array( "slug" => "result", "with_front" => true ),
+    "query_var" => true,
+      'show_in_rest'       => true,
+      'rest_base'          => 'result',
+      'rest_controller_class' => 'WP_REST_Posts_Controller',
+  );
+  register_post_type( "result", $args );
+}
+add_action( 'init', 'gateGenius_register_post_types' );
+
+
+/* Hide UI of Result Post Type from user */
+function gateGenius_remove_menu_items() {
+    if( !current_user_can( 'administrator' ) ):
+        remove_menu_page( 'edit.php?post_type=result' );
+    endif;
+}
+add_action( 'admin_menu', 'gateGenius_remove_menu_items' );
+
+/* Ajax for checking post Exist or not */
+
+add_action('wp_ajax_checkPost','gateGenius_check_post_exist_or_not');
+add_action('wp_ajax_nopriv_checkPost','gateGenius_check_post_exist_or_not');
+function gateGenius_check_post_exist_or_not(){
+  require 'checkForPost.php';
 }
 
 
