@@ -358,44 +358,40 @@
     });
 
     function createPostMethod(){
-      fetch(myData.siteURL+"/index.php/wp-json/wp/v2/result",{
-          method: "POST",
-          headers:{
-              'Content-Type': 'application/json;charset=UTF-8',
-              'accept': 'application/json',
-              'X-WP-Nonce': myData.nonce
-          },
-          body:JSON.stringify({
-              title: postData.title,
-              content: postData.content,
-              status: 'publish'
-          })
-      }).then(function(){
-            // redirect User to thankyou page
+
+      var createPost = new XMLHttpRequest();
+      createPost.open("POST", myData.siteURL + "/index.php/wp-json/wp/v2/result");
+      createPost.setRequestHeader("X-WP-Nonce", myData.nonce);
+      createPost.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+      createPost.send(JSON.stringify(postData));
+      createPost.onreadystatechange = function() {
+        if (createPost.readyState == 4) {
+          if (createPost.status == 201) {
             console.log('Result Created');
-      });
+          } else {
+            alert("Error");
+          }
+        }
+      }
     }
 
     function updatePostMethod(id){
-      fetch(myData.siteURL+'/index.php/wp-json/wp/v2/result/'+id,{
-          method: "PUT",
-          headers:{
-              'Content-Type': 'application/json;charset=UTF-8',
-              'accept': 'application/json',
-              'X-WP-Nonce': myData.nonce
-          },
-          body:JSON.stringify({
-              title: postData.title,
-              content: postData.content,
-              fields: {
-                user_name: postData.fields.user_name
-              },
-              status: 'publish'
-          })
-      }).then(function(){
-            // redirect user to thank you page
+      var updatePost = new XMLHttpRequest();
+      updatePost.open("PUT", myData.siteURL + "/index.php/wp-json/wp/v2/result/"+id);
+      updatePost.setRequestHeader("X-WP-Nonce", myData.nonce);
+      updatePost.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+      updatePost.send(JSON.stringify(postData));
+      updatePost.onreadystatechange = function() {
+        if (updatePost.readyState == 4) {
+          if (updatePost.status == 201) {
+            // console.log('Result Updated');
+          } else {
+            // redirect to thank you
             console.log('Result Updated');
-      });
+            alert("Error");
+          }
+        }
+      }
     }
   }
 
