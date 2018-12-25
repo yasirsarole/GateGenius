@@ -375,9 +375,13 @@
           if (createPost.status == 201) {
             console.log('Result Created');
             // thank you
+            window.location.replace(myData.siteURL);
           } else {
+            alert("Thank You! Your Exam is Submited Best of Luck for Results");
             console.log('something went wrong');
             // exit
+            alert("Thank You! Your Exam is Submited Best of Luck for Results");
+            window.location.replace(myData.siteURL);
           }
         }
       }
@@ -392,9 +396,13 @@
       updatePost.onreadystatechange = function() {
         if (updatePost.readyState == 4) {
           if (updatePost.status == 201) {
+            alert("Thank You! Your Exam is Submited Best of Luck for Results");
+            window.location.replace(myData.siteURL);
           } else {
             // redirect to thank you
             console.log('Result Updated');
+            alert("Thank You! Your Exam is Submited Best of Luck for Results");
+            window.location.replace(myData.siteURL);
           }
         }
       }
