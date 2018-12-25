@@ -33,7 +33,7 @@
     </div>
     <div class="answer-field">
 		<input type="text" class="input-answer" id="myinputbox">
-		<div class="numeric-keyboard">
+		<!-- <div class="numeric-keyboard">
 			<span class="backspace">backspace</span>
 			<ul class="numbers">
 				<li>7</li>
@@ -54,7 +54,7 @@
 				<span class="forward-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
 			</div>
 			<span class="clear-all">clear all</span>
-		</div>		
+		</div> -->		
 	</div>
 	<figure class="arrow-up">
       <img src="../wp-content/themes/gategenius/assets/images/arrow-up.png" alt="Arrow Up">

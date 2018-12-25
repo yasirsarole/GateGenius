@@ -239,44 +239,50 @@
   // Ready function end
 
   $(window).on('load', function() {
-    // JS for displaying time on exam page
-    var actualTime = '';
-    $('.question-type .main-section').each(function(i) {
-      actualTime = i;
-    });
-    actualTime = Math.ceil(1.8*(actualTime+1));
-    var seconds = 60;
-    var currentLeft = actualTime + ' : ' + seconds;
-    $('.actual-left').text(currentLeft);
+    setTimeout(function(){
+      if($('.qna-section-main').css('display') == 'block' ){
 
-    function decreaseTime() {
-      if ( seconds == 00 ) {
-        seconds = 60;
-        actualTime = actualTime - 1;
+      // JS for displaying time on exam page
+      var actualTime = '';
+      $('.question-type .main-section').each(function(i) {
+        actualTime = i;
+      });
+      actualTime = Math.ceil(1.8*(actualTime+1));
+      var seconds = 60;
+      var currentLeft = actualTime + ' : ' + seconds;
+      $('.actual-left').text(currentLeft);
 
-        if (actualTime < 10) {
-          actualTime = '0' + actualTime;
-        }              
+
+        function decreaseTime() {
+          if ( seconds == 00 ) {
+            seconds = 60;
+            actualTime = actualTime - 1;
+
+            if (actualTime < 10) {
+              actualTime = '0' + actualTime;
+            }              
+          }
+          seconds = seconds - 30;
+
+          if (seconds < 10) {
+            seconds = '0' + seconds;
+          }      
+        }
+      console.log($(this).attr('disabled'));
+      var interval = setInterval(function() {
+        decreaseTime();
+        $('.actual-left').text(actualTime + ' : ' + seconds);
+        if (actualTime == 00 && seconds == 00) {
+          clearInterval(interval);
+          $('.actual-left').text('00' + ' : ' + '00');
+            EvaluateMarks();
+        }
+      },1000);
+
       }
-      seconds = seconds - 30;
-
-      if (seconds < 10) {
-        seconds = '0' + seconds;
-      }      
-    }
-
-    var interval = setInterval(function() {
-      decreaseTime();
-      $('.actual-left').text(actualTime + ' : ' + seconds);
-      if (actualTime == 00 && seconds == 00) {
-        clearInterval(interval);
-        $('.actual-left').text('00' + ' : ' + '00');
-          EvaluateMarks();
-      }
-    },1000);
+    },3000);
 
     // Gate Exam
-
     $('.paper-types').attr('data-active-paper', 'type-1');
     $('.qna-section-main').attr('data-active-exam-type', 'type-1');
 
@@ -368,8 +374,10 @@
         if (createPost.readyState == 4) {
           if (createPost.status == 201) {
             console.log('Result Created');
+            // thank you
           } else {
-            alert("Error");
+            console.log('something went wrong');
+            // exit
           }
         }
       }
@@ -384,11 +392,9 @@
       updatePost.onreadystatechange = function() {
         if (updatePost.readyState == 4) {
           if (updatePost.status == 201) {
-            // console.log('Result Updated');
           } else {
             // redirect to thank you
             console.log('Result Updated');
-            alert("Error");
           }
         }
       }
