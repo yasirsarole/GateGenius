@@ -22,7 +22,7 @@
     <span class=negative-marks>Marks for correct answer <span class="positive">1</span> | Negative Marks <span class="negative">1/3</span></span>
   </div>
   <div class="question-number clearfix">
-    <span class="question-no">Question No. 1</span>
+    <span class="question-no">Question No. <?php echo $question_counter; ?></span>
     <figure class="arrow-down">
       <img src="../wp-content/themes/gategenius/assets/images/arrow-down.png" alt="Arrow Down">
     </figure>

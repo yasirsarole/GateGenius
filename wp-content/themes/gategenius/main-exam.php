@@ -43,12 +43,13 @@ get_header();
 				</div>
 				<div class="paper-types">
 					<ul class="papers">
-						<?php $count = 0; ?>
+						<?php $count = 0; $totalPapers = array();?>
 						<?php
 							if( have_rows('paper_types') ):
 								while ( have_rows('paper_types') ) : the_row();
-								$paperName = get_sub_field('paper_name');
-								$count++;
+									$paperName = get_sub_field('paper_name');
+									array_push($totalPapers, $paperName);
+									$count++;
 						?>
 						<li class="paper-name" data-id="<?php echo 'type-'.$count ?>" data-active=""><span><?php echo $paperName; ?></span></li>	
 						<?php
@@ -83,6 +84,7 @@ get_header();
 		<div class="wrapper">
 			<?php
 				if( have_rows('paper_types') ):
+					$paperCount = 0;
 					while ( have_rows('paper_types') ) : the_row();
 			?>
 				<div class="exam-types invisible" data-exam-type="<?php echo 'type-'.$examtype_counter; ?>">
@@ -111,7 +113,7 @@ get_header();
 							<span class="mark-review" data-before-content="">Marked for Review</span>
 							<span class="answered-and-marked" data-before-content="">Answered & Marked for Review (will be considered for evaluation)</span>
 						</div>
-						<span class="subject-title">Dynamic Subject Name</span>
+						<span class="subject-title"><?php echo $totalPapers[$paperCount]; ?></span>
 						<div class="choose-question-container">
 							<span class="choose-question">Choose a Question</span>
 							<ul class="status-images">
@@ -142,7 +144,7 @@ get_header();
 						</div>
 					</div>
 				</div>							
-			<?php
+			<?php 	$paperCount++;
 					endwhile;
 				endif;
 			?>

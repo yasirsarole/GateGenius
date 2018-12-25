@@ -262,7 +262,7 @@
               actualTime = '0' + actualTime;
             }              
           }
-          seconds = seconds - 30;
+          seconds = seconds - 1;
 
           if (seconds < 10) {
             seconds = '0' + seconds;
@@ -375,13 +375,10 @@
           if (createPost.status == 201) {
             console.log('Result Created');
             // thank you
-            window.location.replace(myData.siteURL);
+            window.location.replace(myData.redirectLink);
           } else {
-            alert("Thank You! Your Exam is Submited Best of Luck for Results");
-            console.log('something went wrong');
             // exit
-            alert("Thank You! Your Exam is Submited Best of Luck for Results");
-            window.location.replace(myData.siteURL);
+            window.location.replace(myData.redirectLink);
           }
         }
       }
@@ -396,13 +393,10 @@
       updatePost.onreadystatechange = function() {
         if (updatePost.readyState == 4) {
           if (updatePost.status == 201) {
-            alert("Thank You! Your Exam is Submited Best of Luck for Results");
-            window.location.replace(myData.siteURL);
+            window.location.replace(myData.redirectLink);
           } else {
             // redirect to thank you
-            console.log('Result Updated');
-            alert("Thank You! Your Exam is Submited Best of Luck for Results");
-            window.location.replace(myData.siteURL);
+            window.location.replace(myData.redirectLink);
           }
         }
       }

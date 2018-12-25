@@ -11,7 +11,7 @@
       'userID' => wp_get_current_user()->data->ID,
       'userloginname' => wp_get_current_user()->data->display_name,
       'todaysdate' => date('d-m-Y'),
-      // 'redirectLink' => 
+      'redirectLink' => get_permalink( get_page_by_title( 'Thank You' ) )
     ));
     wp_enqueue_style('raleway-font', 'https://fonts.googleapis.com/css?family=Raleway', array(), time(), false);
     wp_enqueue_style('opensans-font', 'https://fonts.googleapis.com/css?family=Open+Sans', array(), time(), false);

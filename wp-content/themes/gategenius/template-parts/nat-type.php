@@ -11,7 +11,7 @@
 ?>
 <div class="main-section nat-type invisible" data-question-id="<?php echo 'question-id-'.$question_counter; ?>" data-correct-answer="<?php echo $correctAnswer; ?>" data-question-marks="<?php echo $questionMark; ?>" data-marks-scored="0">
   <div class="questype-marks">
-		<span class="question-type-name">Question Type : MCQ</span>
+		<span class="question-type-name">Question Type : NAT</span>
 		<?php
 			if (get_sub_field('one') === true) {
 				$marks = 1;
@@ -22,7 +22,7 @@
     <span class=negative-marks>Marks for correct answer <span class="positive"><?php echo $marks; ?></span> | Negative Marks <span class="negative"><?php echo $marks; ?>/3</span></span>
   </div>
   <div class="question-number clearfix">
-    <span class="question-no">Question No. 1</span>
+    <span class="question-no">Question No. <?php echo $question_counter; ?></span>
     <figure class="arrow-down">
       <img src="../wp-content/themes/gategenius/assets/images/arrow-down.png" alt="Arrow Down">
     </figure>
