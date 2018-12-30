@@ -403,7 +403,7 @@
     }
   }
 
-  $(window).on('load, resize', function() {
+  $(window).on('load resize', function() {
     if (window.innerWidth < 768) {
       $('.myinputbox-keyboard').attr('readonly', 'true');
     } else {

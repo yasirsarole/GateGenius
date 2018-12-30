@@ -2327,3 +2327,18 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
 .visible {
 	display: block;
 }
+
+.question-status {
+	padding: 0;
+	text-align: center;
+}
+.status-images {
+    height: 90%;
+    margin-top: 10px;
+	overflow: scroll;
+}
+
+.status-images span {
+    width: auto;
+}
+
