@@ -15,9 +15,11 @@
 			<h1 class="main-logo">
 				<a href="<?php echo get_home_url(); ?>" title="GATEGENIUS">gate<span>genius</span></a>
 			</h1>
-			<div class="new-headline">
-				<h3>I pause on hover lorem ipsum hi sms th is the marque tex to be tested on live site thank you</h3>
-			</div>
+			<?php if(get_field('news_headline','option')) { ?>
+				<div class="new-headline">
+					<h3><?php echo get_field('news_headline','option'); ?></h3>
+				</div>
+			<?php } ?>
 			<div class="social-icons">
 				<?php if (get_field('facebook_link','options')) { ?>
 					<a href="#" title="Facebook" target="_blank"><i class="fa fa-facebook-f"></i></a>
