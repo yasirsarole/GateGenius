@@ -1,0 +1,1 @@
+{"result":{"text":"E equals ■ left parenthesis l i m @ capital delta for all rightwards arrow 0 left square bracket negative capital delta P divided by left parenthesis left parenthesis capital delta for all right parenthesis divided by for all right parenthesis right square bracket space right parenthesis"},"status":"ok"}

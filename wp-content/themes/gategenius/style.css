@@ -252,6 +252,7 @@ h1 span {
 /***** Footer css starts here *****/
 .main-footer {
 	min-height: 100px;
+	margin-top: 30px;
 	padding: 9px 0;
 	border-top: 1px solid #000;
 	background: #0067B8;
@@ -2203,11 +2204,11 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
 }
 /* Move it (define the animation) */
 @-moz-keyframes new-headline {
- 0%   { -moz-transform: translateX(110%); }
+ 0%   { -moz-transform: translateX(100%); }
  100% { -moz-transform: translateX(-100%); }
 }
 @-webkit-keyframes new-headline {
- 0%   { -webkit-transform: translateX(110%); }
+ 0%   { -webkit-transform: translateX(100%); }
  100% { -webkit-transform: translateX(-100%); }
 }
 @keyframes new-headline {

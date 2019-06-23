@@ -1,0 +1,1 @@
+{"result":{"text":"E equals table row cell l i m end cell row cell capital delta for all rightwards arrow 0 open square brackets negative fraction numerator capital delta P over denominator fraction numerator capital delta for all over denominator for all end fraction end fraction close square brackets end cell end table"},"status":"ok"}

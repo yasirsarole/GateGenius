@@ -13,6 +13,7 @@
       'todaysdate' => date('d-m-Y'),
       'redirectLink' => get_permalink( get_page_by_title( 'Thank You' ) )
     ));
+    
     wp_enqueue_style('raleway-font', 'https://fonts.googleapis.com/css?family=Raleway', array(), time(), false);
     wp_enqueue_style('opensans-font', 'https://fonts.googleapis.com/css?family=Open+Sans', array(), time(), false);
     wp_enqueue_style('mons-font', 'https://fonts.googleapis.com/css?family=Montserrat', array(), time(), false);
